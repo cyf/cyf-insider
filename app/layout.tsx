@@ -7,8 +7,8 @@ import Footer from "@/components/layout/footer";
 import { Suspense } from "react";
 
 export const metadata = {
-  title: "FaFa Runner Insider",
-  description: "FaFa Runner Insider.",
+  title: "CYF Insider",
+  description: "CYF Insider.",
   metadataBase: new URL("https://insider.chenyifaer.com"),
   themeColor: "#FFF",
 };
