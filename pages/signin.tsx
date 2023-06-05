@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { Github, Google, LoadingDots } from "@/components/shared/icons";
@@ -14,7 +15,7 @@ export default function SignIn() {
     <div className="flex w-screen justify-center">
       <div className="z-10 h-fit w-full max-w-md overflow-hidden border border-gray-100 sm:rounded-2xl sm:shadow-xl">
         <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center sm:px-16">
-          <a href="/">
+          <Link href="/">
             <Image
               src="/logo.png"
               alt="CYF logo"
@@ -22,7 +23,7 @@ export default function SignIn() {
               width={20}
               height={20}
             />
-          </a>
+          </Link>
           <h3 className="text-xl font-semibold">Sign in to CYF</h3>
           <p className="text-sm text-gray-500">
             Start creating short links with superpowers.
