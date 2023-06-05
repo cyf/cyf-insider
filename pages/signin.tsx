@@ -1,47 +1,34 @@
-"use client";
-import Modal from "@/components/shared/modal";
-import { signIn } from "next-auth/react";
-import {
-  useState,
-  Dispatch,
-  SetStateAction,
-  useCallback,
-  useMemo,
-} from "react";
-import { LoadingDots, Google, Github } from "@/components/shared/icons";
 import Image from "next/image";
+import { useState } from "react";
+import { signIn } from "next-auth/react";
+import { Github, Google, LoadingDots } from "@/components/shared/icons";
+import { useRouter } from "next/router";
 
-const SignInModal = ({
-  showSignInModal,
-  setShowSignInModal,
-}: {
-  showSignInModal: boolean;
-  setShowSignInModal: Dispatch<SetStateAction<boolean>>;
-}) => {
+export default function SignIn() {
+  const router = useRouter();
+  const { callbackUrl } = router.query as { callbackUrl?: string };
   const [googleClicked, setGoogleClicked] = useState(false);
   const [githubClicked, setGitHubClicked] = useState(false);
 
   return (
-    <Modal showModal={showSignInModal} setShowModal={setShowSignInModal}>
-      <div className="w-full overflow-hidden shadow-xl md:max-w-md md:rounded-2xl md:border md:border-gray-200">
-        <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center md:px-16">
-          <a href="https://insider.chenyifaer.com">
+    <div className="flex w-screen justify-center">
+      <div className="z-10 h-fit w-full max-w-md overflow-hidden border border-gray-100 sm:rounded-2xl sm:shadow-xl">
+        <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center sm:px-16">
+          <a href="/">
             <Image
               src="/logo.png"
-              alt="Logo"
+              alt="CYF logo"
               className="h-10 w-10 rounded-full"
               width={20}
               height={20}
             />
           </a>
-          <h3 className="font-display text-2xl font-bold">Sign In</h3>
+          <h3 className="text-xl font-semibold">Sign in to CYF</h3>
           <p className="text-sm text-gray-500">
-            This is strictly for demo purposes - only your email and profile
-            picture will be stored.
+            Start creating short links with superpowers.
           </p>
         </div>
-
-        <div className="flex flex-col space-y-4 bg-gray-50 px-4 py-8 md:px-16">
+        <div className="flex flex-col space-y-3 bg-gray-50 px-4 py-8 sm:px-16">
           <button
             disabled={googleClicked}
             className={`${
@@ -51,7 +38,11 @@ const SignInModal = ({
             } flex h-10 w-full items-center justify-center space-x-3 rounded-md border text-sm shadow-sm transition-all duration-75 focus:outline-none`}
             onClick={() => {
               setGoogleClicked(true);
-              signIn("google");
+              signIn("google", {
+                ...(callbackUrl ? { callbackUrl } : {}),
+              }).finally(() => {
+                setGoogleClicked(false);
+              });
             }}
           >
             {googleClicked ? (
@@ -72,7 +63,11 @@ const SignInModal = ({
             } flex h-10 w-full items-center justify-center space-x-3 rounded-md border text-sm shadow-sm transition-all duration-75 focus:outline-none`}
             onClick={() => {
               setGitHubClicked(true);
-              signIn("github");
+              signIn("github", {
+                ...(callbackUrl ? { callbackUrl } : {}),
+              }).finally(() => {
+                setGitHubClicked(false);
+              });
             }}
           >
             {githubClicked ? (
@@ -86,24 +81,6 @@ const SignInModal = ({
           </button>
         </div>
       </div>
-    </Modal>
-  );
-};
-
-export function useSignInModal() {
-  const [showSignInModal, setShowSignInModal] = useState(false);
-
-  const SignInModalCallback = useCallback(() => {
-    return (
-      <SignInModal
-        showSignInModal={showSignInModal}
-        setShowSignInModal={setShowSignInModal}
-      />
-    );
-  }, [showSignInModal, setShowSignInModal]);
-
-  return useMemo(
-    () => ({ setShowSignInModal, SignInModal: SignInModalCallback }),
-    [setShowSignInModal, SignInModalCallback],
+    </div>
   );
 }
