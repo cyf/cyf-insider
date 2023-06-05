@@ -1,23 +1,19 @@
-import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
-import { getToken } from "next-auth/jwt";
+import { withAuth } from "next-auth/middleware";
+import jwt_decode  from 'jwt-decode';
 
-export default async function middleware(req: NextRequest, ev: NextFetchEvent) {
-  const path = req.nextUrl.pathname;
+// More on how NextAuth.js middleware works: https://next-auth.js.org/configuration/nextjs#middleware
+export default withAuth({
+  callbacks: {
+    authorized({ req, token }) {
+      console.log('callback token', token, "req", req);
+      const tokenValue = req.cookies.get("next-auth.session-token")?.value;
+      const tokenInSession: any = tokenValue ? jwt_decode(tokenValue) : null;
 
-  // If it's the root path, just render it
-  if (path === "/") {
-    return NextResponse.next();
-  }
+      console.log('tokenInSession', tokenInSession);
+      // `/form` only requires the user to be logged in
+      return !!token || !!tokenInSession;
+    },
+  },
+});
 
-  const session = await getToken({
-    req,
-    secret: process.env.NEXTAUTH_SECRET,
-  });
-
-  if (!session && path === "/form") {
-    return NextResponse.redirect(new URL("/signin", req.url));
-  } else if (session && path === "/signin") {
-    return NextResponse.redirect(new URL("/form", req.url));
-  }
-  return NextResponse.next();
-}
+export const config = { matcher: ["/form"] };
