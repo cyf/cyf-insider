@@ -21,5 +21,3 @@ export default async function middleware(req: NextRequest, ev: NextFetchEvent) {
   }
   return NextResponse.next();
 }
-
-export const config = { matcher: ["/form"] };
