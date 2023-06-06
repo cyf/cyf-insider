@@ -6,6 +6,10 @@ import GithubProvider from "next-auth/providers/github";
 
 const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
+  session: {
+    strategy: 'jwt',
+    maxAge: 60 * 60 * 24 * 14,
+  },
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
