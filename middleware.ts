@@ -4,7 +4,7 @@ import { withAuth } from "next-auth/middleware";
 export default withAuth({
   callbacks: {
     authorized({ req, token }) {
-      console.log('callback token', token, "req", req);
+      console.log("callback token", token, "req", req);
       // `/form` only requires the user to be logged in
       return !!token;
     },

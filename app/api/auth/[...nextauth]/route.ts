@@ -7,7 +7,7 @@ import GithubProvider from "next-auth/providers/github";
 const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   session: {
-    strategy: 'jwt',
+    strategy: "jwt",
     maxAge: 60 * 60 * 24 * 14,
   },
   providers: [
@@ -25,9 +25,9 @@ const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async jwt({ token }) {
-      return token
-    }
-  }
+      return token;
+    },
+  },
 };
 
 const handler = NextAuth(authOptions);
