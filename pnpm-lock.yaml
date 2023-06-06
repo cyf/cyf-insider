@@ -21,7 +21,6 @@ specifiers:
   eslint-config-next: 13.1.1
   focus-trap-react: ^10.0.2
   framer-motion: ^8.4.2
-  jwt-decode: ^3.1.2
   lucide-react: 0.105.0-alpha.4
   ms: ^2.1.3
   next: 13.4.2
@@ -48,7 +47,6 @@ dependencies:
   classnames: 2.3.2
   focus-trap-react: 10.1.1_biqbaboplfbrettd7655fr4n2y
   framer-motion: 8.5.5_biqbaboplfbrettd7655fr4n2y
-  jwt-decode: 3.1.2
   lucide-react: 0.105.0-alpha.4_react@18.2.0
   ms: 2.1.3
   next: 13.4.2_biqbaboplfbrettd7655fr4n2y
@@ -2358,10 +2356,6 @@ packages:
       array-includes: 3.1.6
       object.assign: 4.1.4
     dev: true
-
-  /jwt-decode/3.1.2:
-    resolution: {integrity: sha512-UfpWE/VZn0iP50d8cz9NrZLM9lSWhcJ+0Gt/nm4by88UL+J1SiKN8/5dkjMmbEzwL2CAe+67GsegCbIKtbp75A==}
-    dev: false
 
   /kleur/4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
