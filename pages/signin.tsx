@@ -26,7 +26,7 @@ export default function SignIn() {
           </Link>
           <h3 className="text-xl font-semibold">Sign in to CYF</h3>
           <p className="text-sm text-gray-500">
-            Start creating short links with superpowers.
+            Only your email and profile picture will be stored.
           </p>
         </div>
         <div className="flex flex-col space-y-3 bg-gray-50 px-4 py-8 sm:px-16">
