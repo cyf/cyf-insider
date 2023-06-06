@@ -20,7 +20,7 @@ export function JoinInsider() {
       >
         <Github />
         <p>
-          <span className="hidden font-semibold sm:inline-block">
+          <span className="font-semibold sm:inline-block">
             Join Insider
           </span>
         </p>
