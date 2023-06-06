@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Github, LoadingDots } from "@/components/shared/icons";
+import { Send } from "lucide-react";
+import { LoadingDots } from "@/components/shared/icons";
 
 export default function Form() {
   const [submitClicked, setSubmitClicked] = useState(false);
@@ -117,7 +118,7 @@ export default function Form() {
                   <LoadingDots color="#808080" />
                 ) : (
                   <>
-                    <Github className="h-5 w-5" />
+                    <Send className="h-5 w-5" />
                     <p>Submit</p>
                   </>
                 )}
