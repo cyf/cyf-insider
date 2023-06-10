@@ -27,7 +27,7 @@ const authOptions: NextAuthOptions = {
   callbacks: {
     async jwt({ token, user }) {
       if (user?.email === ADMIN_EMAIL) {
-        token.userRole = "admin"
+        token.userRole = "admin";
       }
       return token;
     },

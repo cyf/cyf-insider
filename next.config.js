@@ -9,6 +9,9 @@ const nextConfig = {
       "vercel.com",
     ],
   },
+  experimental: {
+    serverComponentsExternalPackages: ['@tremor/react']
+  },
   async redirects() {
     return [
       {

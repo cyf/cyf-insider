@@ -4,7 +4,6 @@ import { withAuth } from "next-auth/middleware";
 export default withAuth({
   callbacks: {
     authorized({ req, token }) {
-      console.log("callback token", token, "req", req);
       // `/admin-form-list` requires admin role
       if (req.nextUrl.pathname === "/admin-form-list") {
         return token?.userRole === "admin";
@@ -15,4 +14,6 @@ export default withAuth({
   },
 });
 
-export const config = { matcher: ["/form", "/admin-form-list", "/user-form-list"] };
+export const config = {
+  matcher: ["/form", "/admin-form-list", "/user-form-list"],
+};

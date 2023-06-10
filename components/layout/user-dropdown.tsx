@@ -36,21 +36,21 @@ export default function UserDropdown({ session }: { session: Session }) {
               <p className="text-sm">Join Insider</p>
             </button>
             <button
-                className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100"
-                onClick={() => router.push("/user-form-list")}
+              className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100"
+              onClick={() => router.push("/user-form-list")}
             >
               <LayoutDashboard className="h-4 w-4" />
               <p className="text-sm">User List</p>
             </button>
-            {
-              email === ADMIN_EMAIL && <button
-                  className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100"
-                  onClick={() => router.push("/admin-form-list")}
+            {email === ADMIN_EMAIL && (
+              <button
+                className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100"
+                onClick={() => router.push("/admin-form-list")}
               >
                 <LayoutDashboard className="h-4 w-4" />
                 <p className="text-sm">Admin List</p>
               </button>
-            }
+            )}
             <button
               className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100"
               onClick={() => signOut()}
