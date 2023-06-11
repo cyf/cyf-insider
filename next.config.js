@@ -3,10 +3,12 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
+    dangerouslyAllowSVG: true,
     domains: [
       "lh3.googleusercontent.com",
       "avatars.githubusercontent.com",
       "insider.chenyifaer.com",
+      "visitor-badge.laobi.icu",
       "vercel.com",
     ],
   },

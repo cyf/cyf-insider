@@ -21,6 +21,14 @@ export default function Footer() {
                 CYF
               </span>
             </a>
+            <p className="mt-4">
+              <Image
+                src="https://visitor-badge.laobi.icu/badge?page_id=insider.chenyifaer.com"
+                width={60}
+                height={20}
+                alt="visitor badge"
+              />
+            </p>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
             <div>
