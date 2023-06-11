@@ -33,6 +33,7 @@ specifiers:
   prop-types: ^15.8.1
   react: 18.2.0
   react-dom: 18.2.0
+  react-icons: ^4.9.0
   react-markdown: ^8.0.4
   react-use: ^17.4.0
   react-wrap-balancer: ^0.3.0
@@ -57,6 +58,7 @@ dependencies:
   next-auth: 4.22.1_cmp7sjki5xcmfyvhcokzzink7a
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-icons: 4.9.0_react@18.2.0
   react-markdown: 8.0.7_kzbn2opkn2327fwg5yzwzya5o4
   react-use: 17.4.0_biqbaboplfbrettd7655fr4n2y
   react-wrap-balancer: 0.3.0_react@18.2.0
@@ -3882,6 +3884,14 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-icons/4.9.0_react@18.2.0:
+    resolution: {integrity: sha512-ijUnFr//ycebOqujtqtV9PFS7JjhWg0QU6ykURVHuL4cbofvRCf3f6GMn9+fBktEFQOIVZnuAYLZdiyadRQRFg==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-is/16.13.1:

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send } from "lucide-react";
+import { GrAddCircle } from "react-icons/gr";
 import { LoadingDots } from "@/components/shared/icons";
 
 export default function Form() {
@@ -118,8 +118,8 @@ export default function Form() {
                   <LoadingDots color="#808080" />
                 ) : (
                   <>
-                    <Send className="h-5 w-5" />
-                    <p>Submit</p>
+                    <GrAddCircle className="h-5 w-5" />
+                    <p className="text-lg">Submit</p>
                   </>
                 )}
               </button>
