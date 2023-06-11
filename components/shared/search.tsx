@@ -9,14 +9,14 @@ export default function Search({ disabled }: { disabled?: boolean }) {
   const { replace } = useRouter();
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
-  const [val, setVal] = useState('');
+  const [val, setVal] = useState("");
 
   const [, cancel] = useDebounce(
-      () => {
-        handleSearch(val);
-      },
-      1000,
-      [val]
+    () => {
+      handleSearch(val);
+    },
+    1000,
+    [val],
   );
 
   function handleSearch(term: string) {

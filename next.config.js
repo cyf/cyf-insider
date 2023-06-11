@@ -6,11 +6,12 @@ const nextConfig = {
     domains: [
       "lh3.googleusercontent.com",
       "avatars.githubusercontent.com",
+      "insider.chenyifaer.com",
       "vercel.com",
     ],
   },
   experimental: {
-    serverComponentsExternalPackages: ['@tremor/react']
+    serverComponentsExternalPackages: ["@tremor/react"],
   },
   async redirects() {
     return [

@@ -12,9 +12,11 @@ export async function GET(request: Request) {
       emailVerified: true,
       image: true,
     },
-    where: email ? {
-        email: { contains: email },
-    } : {},
+    where: email
+      ? {
+          email: { contains: email },
+        }
+      : {},
   });
   return NextResponse.json({ data: users }, { status: 200 });
 }
