@@ -11,7 +11,7 @@ export default function Footer() {
               className="flex items-center"
             >
               <Image
-                src="https://insider.chenyifaer.com/logo.png"
+                src="https://www.chenyifaer.com/join/logo.png"
                 height={50}
                 width={50}
                 className="mr-3 rounded-full"

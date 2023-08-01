@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: '/join',
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -7,7 +8,8 @@ const nextConfig = {
     domains: [
       "lh3.googleusercontent.com",
       "avatars.githubusercontent.com",
-      "insider.chenyifaer.com",
+      "www.chenyifaer.com",
+      "chenyifaer.com",
       "visitor-badge.laobi.icu",
       "vercel.com",
     ],
