@@ -22,7 +22,7 @@ const authOptions: NextAuthOptions = {
     }),
   ],
   pages: {
-    signIn: "/signin",
+    signIn: "/join/signin",
   },
   callbacks: {
     async jwt({ token, user }) {
