@@ -6,7 +6,7 @@ import { sfPro, inter } from "@/styles/fonts";
 export const metadata = {
   title: "CYF Insider",
   description: "CYF Insider.",
-  metadataBase: new URL("https://chenyifaer.com/join"),
+  metadataBase: new URL("https://www.chenyifaer.com/join"),
   themeColor: "#FFF",
 };
 
