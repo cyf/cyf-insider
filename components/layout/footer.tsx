@@ -96,7 +96,7 @@ export default function Footer() {
           <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
             © 2023{" "}
             <a
-              href="https://insider.chenyifaer.com/"
+              href="https://chenyifaer.com/join"
               className="hover:underline"
             >
               CYF Insider™
