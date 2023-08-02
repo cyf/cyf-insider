@@ -95,13 +95,18 @@ export default function Footer() {
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
             © 2023{" "}
-            <a
-              href="https://chenyifaer.com/join"
-              className="hover:underline"
-            >
+            <a href="https://chenyifaer.com/join" className="hover:underline">
               CYF Insider™
             </a>
-            . All Rights Reserved.
+            . All Rights Reserved.{" "}
+            {process.env.VERCEL_GIT_COMMIT_SHA && (
+              <a
+                href={`https://github.com/kjxbyz/cyf-insider/commit/${process.env.VERCEL_GIT_COMMIT_SHA}`}
+                className="hover:underline"
+              >
+                {process.env.VERCEL_GIT_COMMIT_SHA.substring(0, 8)}
+              </a>
+            )}
           </span>
           <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
             <a
