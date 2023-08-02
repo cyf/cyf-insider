@@ -20,7 +20,7 @@ export default function AdminFormList() {
         }).toString()}`
       : "";
     setLoading(true);
-    fetch(`/api/list/admin${paramStr}`, {
+    fetch(`/join/api/list/admin${paramStr}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

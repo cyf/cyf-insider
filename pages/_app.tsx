@@ -12,7 +12,7 @@ export default function CYFApp({
   pageProps: { session, ...pageProps },
 }: AppProps<{ session: Session }>) {
   return (
-    <SessionProvider session={session}>
+    <SessionProvider session={session} basePath="/join/api/auth">
       <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-50 via-white to-cyan-100" />
       <Suspense fallback="...">
         <Nav />
