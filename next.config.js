@@ -27,6 +27,7 @@ const nextConfig = {
     ];
   },
   env: {
+    VERCEL: 0,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     VERCEL_GIT_COMMIT_SHA: process.env.VERCEL_GIT_COMMIT_SHA,
