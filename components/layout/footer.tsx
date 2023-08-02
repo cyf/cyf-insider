@@ -102,7 +102,9 @@ export default function Footer() {
             {process.env.VERCEL_GIT_COMMIT_SHA && (
               <a
                 href={`https://github.com/kjxbyz/cyf-insider/commit/${process.env.VERCEL_GIT_COMMIT_SHA}`}
+                target="_blank"
                 className="hover:underline"
+                rel="noreferrer"
               >
                 {process.env.VERCEL_GIT_COMMIT_SHA.substring(0, 8)}
               </a>

@@ -3,8 +3,6 @@ import Balancer from "react-wrap-balancer";
 import { JoinInsider } from "@/components/home/join-insider";
 
 export default function Home() {
-  console.log("NEXTAUTH_URL", process.env.NEXTAUTH_URL);
-
   return (
     <div className="z-10 w-full max-w-xl px-5 xl:px-0">
       <h1
