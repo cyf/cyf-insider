@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { LogOut } from "lucide-react";
+import { AiOutlineLogout } from "react-icons/ai";
 import { GrAddCircle } from "react-icons/gr";
 import { BiUser } from "react-icons/bi";
 import { RiAdminLine } from "react-icons/ri";
@@ -51,7 +51,7 @@ export default function UserDropdown({ session }: { session: Session }) {
               className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100"
               onClick={() => signOut()}
             >
-              <LogOut className="h-4 w-4" />
+              <AiOutlineLogout className="h-4 w-4" />
               <p className="text-sm">Logout</p>
             </button>
           </div>

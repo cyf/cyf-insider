@@ -1,6 +1,6 @@
 "use client";
 
-import { Search as SearchIcon } from "lucide-react";
+import { FiSearch } from "react-icons/fi";
 import { usePathname, useRouter } from "next/navigation";
 import { useTransition, useState } from "react";
 import { useDebounce } from "react-use";
@@ -42,7 +42,7 @@ export default function Search({ disabled }: { disabled?: boolean }) {
           className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
           aria-hidden="true"
         >
-          <SearchIcon
+          <FiSearch
             className="mr-3 h-4 w-4 text-gray-400"
             aria-hidden="true"
           />
