@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   basePath: "/join",
+  trailingSlash: true,
   reactStrictMode: true,
   swcMinify: true,
   images: {
