@@ -22,7 +22,7 @@ export default function CYFApp({
           <Head>
             <title>CYF Insider</title>
             <meta name="description" content="CYF Insider" />
-            <link rel="shortcut icon" href="/join/favicon.ico" />
+            <link rel="shortcut icon" href="/favicon.ico" />
           </Head>
           <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-50 via-white to-cyan-100" />
           <Suspense fallback="...">
