@@ -2,9 +2,9 @@
   "name": "cyf-insider",
   "private": true,
   "description": "CYF Insider",
-  "repository": "https://github.com/kjxbyz/cyf-insider.git",
+  "repository": "https://github.com/cyf/cyf-insider.git",
   "bugs": {
-    "url": "https://github.com/kjxbyz/cyf-insider/issues"
+    "url": "https://github.com/cyf/cyf-insider/issues"
   },
   "homepage": "https://chenyifaer.com/join",
   "scripts": {

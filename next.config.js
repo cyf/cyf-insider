@@ -22,7 +22,7 @@ const nextConfig = {
     return [
       {
         source: "/github",
-        destination: "https://github.com/kjxbyz/cyf-insider",
+        destination: "https://github.com/cyf/cyf-insider",
         permanent: false,
       },
     ];
