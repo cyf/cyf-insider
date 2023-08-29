@@ -4,9 +4,8 @@ import { useState } from "react";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { AiOutlineLogout } from "react-icons/ai";
-import { GrAddCircle } from "react-icons/gr";
 import { BiUser } from "react-icons/bi";
-import { RiAdminLine } from "react-icons/ri";
+import { RiAdminLine, RiAddCircleLine } from "react-icons/ri";
 import Popover from "@/components/shared/popover";
 import Image from "next/image";
 import { Session } from "next-auth";
@@ -23,16 +22,16 @@ export default function UserDropdown({ session }: { session: Session }) {
     <div className="relative inline-block text-left">
       <Popover
         content={
-          <div className="w-full rounded-md bg-white p-2 sm:w-56">
+          <div className="w-full rounded-md bg-white p-2 dark:bg-black sm:w-56">
             <button
-              className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100"
+              className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100 dark:hover:bg-gray-700"
               onClick={() => router.push("/form")}
             >
-              <GrAddCircle className="h-4 w-4" />
+              <RiAddCircleLine className="h-4 w-4" />
               <p className="text-sm">Join Insider</p>
             </button>
             <button
-              className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100"
+              className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100 dark:hover:bg-gray-700"
               onClick={() => router.push("/user-form-list")}
             >
               <BiUser className="h-4 w-4" />
@@ -40,7 +39,7 @@ export default function UserDropdown({ session }: { session: Session }) {
             </button>
             {email === ADMIN_EMAIL && (
               <button
-                className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100"
+                className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100 dark:hover:bg-gray-700"
                 onClick={() => router.push("/admin-form-list")}
               >
                 <RiAdminLine className="h-4 w-4" />
@@ -48,7 +47,7 @@ export default function UserDropdown({ session }: { session: Session }) {
               </button>
             )}
             <button
-              className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100"
+              className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100 dark:hover:bg-gray-700"
               onClick={() => signOut()}
             >
               <AiOutlineLogout className="h-4 w-4" />

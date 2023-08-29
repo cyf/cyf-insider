@@ -7,6 +7,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/react-icons/**/*.{js,ts,jsx,tsx}",
   ],
   future: {
     hoverOnlyWhenSupported: true,
@@ -65,6 +66,7 @@ module.exports = {
       },
     },
   },
+  darkMode: "class",
   plugins: [
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),

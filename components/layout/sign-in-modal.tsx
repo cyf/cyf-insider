@@ -23,8 +23,8 @@ const SignInModal = ({
 
   return (
     <Modal showModal={showSignInModal} setShowModal={setShowSignInModal}>
-      <div className="w-full overflow-hidden shadow-xl md:max-w-md md:rounded-2xl md:border md:border-gray-200">
-        <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center md:px-16">
+      <div className="w-full overflow-hidden shadow-xl md:max-w-md md:rounded-2xl md:border md:border-gray-200 dark:md:border-gray-700">
+        <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center dark:border-gray-700 dark:bg-gray-900 md:px-16">
           <a href="https://www.chenyifaer.com/join">
             <Image
               src="/join/logo.png"
@@ -40,13 +40,13 @@ const SignInModal = ({
           </p>
         </div>
 
-        <div className="flex flex-col space-y-4 bg-gray-50 px-4 py-8 md:px-16">
+        <div className="flex flex-col space-y-4 bg-gray-50 px-4 py-8 dark:bg-gray-900 md:px-16">
           <button
             disabled={googleClicked}
             className={`${
               googleClicked
-                ? "cursor-not-allowed border-gray-200 bg-gray-100"
-                : "border border-gray-200 bg-white text-black hover:bg-gray-50"
+                ? "cursor-not-allowed border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-700"
+                : "border border-gray-200 bg-white text-black hover:bg-gray-50 dark:border-gray-700 dark:bg-black dark:text-white dark:hover:bg-gray-700"
             } flex h-10 w-full items-center justify-center space-x-3 rounded-md border text-sm shadow-sm transition-all duration-75 focus:outline-none`}
             onClick={() => {
               setGoogleClicked(true);
@@ -54,7 +54,7 @@ const SignInModal = ({
             }}
           >
             {googleClicked ? (
-              <LoadingDots color="#808080" />
+              <LoadingDots />
             ) : (
               <>
                 <Google className="h-5 w-5" />
@@ -66,8 +66,8 @@ const SignInModal = ({
             disabled={githubClicked}
             className={`${
               githubClicked
-                ? "cursor-not-allowed border-gray-200 bg-gray-100"
-                : "border border-gray-200 bg-white text-black hover:bg-gray-50"
+                ? "cursor-not-allowed border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-700"
+                : "border border-gray-200 bg-white text-black hover:bg-gray-50 dark:border-gray-700 dark:bg-black dark:text-white dark:hover:bg-gray-700"
             } flex h-10 w-full items-center justify-center space-x-3 rounded-md border text-sm shadow-sm transition-all duration-75 focus:outline-none`}
             onClick={() => {
               setGitHubClicked(true);
@@ -75,7 +75,7 @@ const SignInModal = ({
             }}
           >
             {githubClicked ? (
-              <LoadingDots color="#808080" />
+              <LoadingDots />
             ) : (
               <>
                 <Github className="h-5 w-5" />

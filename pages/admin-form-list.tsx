@@ -39,8 +39,10 @@ export default function AdminFormList() {
 
   return (
     <div className="z-10 w-full max-w-xl px-5 xl:px-0">
-      <Title className="text-3xl font-normal text-gray-700">Users</Title>
-      <Text className="text-sm font-normal text-gray-500">
+      <Title className="text-3xl font-normal text-gray-700 dark:text-gray-300">
+        Users
+      </Title>
+      <Text className="text-sm font-normal text-gray-500 dark:text-gray-400">
         A list of users retrieved from a PostgreSQL database.
       </Text>
       <Search />

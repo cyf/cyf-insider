@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GrAddCircle } from "react-icons/gr";
+import { RiAddCircleLine } from "react-icons/ri";
 import { LoadingDots } from "@/components/shared/icons";
 
 export default function Form() {
@@ -9,8 +9,8 @@ export default function Form() {
 
   return (
     <div className="flex h-screen w-screen justify-center">
-      <div className="z-10 mt-[calc(30vh)] h-fit w-full max-w-md overflow-hidden border border-gray-100 sm:rounded-2xl sm:shadow-xl">
-        <div className="flex flex-col space-y-3 bg-gray-50 px-4 py-8 sm:px-16">
+      <div className="z-10 mt-[calc(30vh)] h-fit w-full max-w-md overflow-hidden border border-gray-100 dark:border-gray-700 sm:rounded-2xl sm:shadow-xl">
+        <div className="flex flex-col space-y-3 bg-gray-50 px-4 py-8 dark:bg-gray-700 sm:px-16">
           <form
             onSubmit={async (e) => {
               e.preventDefault();
@@ -20,7 +20,9 @@ export default function Form() {
             className="flex flex-col space-y-3"
           >
             <div>
-              <div className="text-xm mt-1 text-slate-900">游戏</div>
+              <div className="text-xm mt-1 text-slate-900 dark:text-white">
+                游戏
+              </div>
               <select
                 id="game"
                 name="game"
@@ -39,7 +41,9 @@ export default function Form() {
             </div>
             <div>
               <div className="mb-4 mt-1" />
-              <div className="text-xm mt-1 text-slate-900">平台</div>
+              <div className="text-xm mt-1 text-slate-900 dark:text-white">
+                平台
+              </div>
               <div className="flex">
                 <div
                   className="mr-4 flex items-center"
@@ -80,7 +84,9 @@ export default function Form() {
             </div>
             <div>
               <div className="mb-4 mt-1" />
-              <div className="text-xm mt-1 text-slate-900">邮箱地址</div>
+              <div className="text-xm mt-1 text-slate-900 dark:text-white">
+                邮箱地址
+              </div>
               <input
                 id="email"
                 name="email"
@@ -110,15 +116,15 @@ export default function Form() {
                 type="submit"
                 className={`${
                   submitClicked
-                    ? "cursor-not-allowed border-gray-200 bg-gray-100"
-                    : "border border-gray-200 bg-white text-black hover:bg-gray-50"
+                    ? "cursor-not-allowed border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-700"
+                    : "border border-gray-200 bg-white text-black hover:bg-gray-50 dark:border-gray-700 dark:bg-black dark:text-white dark:hover:bg-gray-700"
                 } flex h-10 w-full items-center justify-center space-x-3 rounded-md border text-sm shadow-sm transition-all duration-75 focus:outline-none`}
               >
                 {submitClicked ? (
-                  <LoadingDots color="#808080" />
+                  <LoadingDots />
                 ) : (
                   <>
-                    <GrAddCircle className="h-5 w-5" />
+                    <RiAddCircleLine className="h-5 w-5 dark:text-gray-300" />
                     <p className="text-lg">Submit</p>
                   </>
                 )}

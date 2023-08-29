@@ -32,7 +32,7 @@ export default function Footer() {
           </div>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900">
+              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-gray-300">
                 Resources
               </h2>
               <ul className="font-medium text-gray-600 dark:text-gray-400">
@@ -52,7 +52,7 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900">
+              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-gray-300">
                 Follow us
               </h2>
               <ul className="font-medium text-gray-600 dark:text-gray-400">
@@ -67,7 +67,7 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900">
+              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-gray-300">
                 Legal
               </h2>
               <ul className="font-medium text-gray-600 dark:text-gray-400">
@@ -91,7 +91,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+        <hr className="my-6 border-gray-200 dark:border-gray-500 sm:mx-auto lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
             © 2023{" "}
@@ -104,7 +104,7 @@ export default function Footer() {
             . All Rights Reserved.{" "}
             {process.env.VERCEL_GIT_COMMIT_SHA && (
               <a
-                href={`https://github.com/kjxbyz/cyf-insider/commit/${process.env.VERCEL_GIT_COMMIT_SHA}`}
+                href={`https://github.com/cyf/cyf-insider/commit/${process.env.VERCEL_GIT_COMMIT_SHA}`}
                 target="_blank"
                 className="hover:underline"
                 rel="noreferrer"

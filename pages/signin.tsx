@@ -13,8 +13,8 @@ export default function SignIn() {
 
   return (
     <div className="flex w-screen justify-center">
-      <div className="z-10 h-fit w-full max-w-md overflow-hidden border border-gray-100 sm:rounded-2xl sm:shadow-xl">
-        <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center sm:px-16">
+      <div className="z-10 h-fit w-full max-w-md overflow-hidden border border-gray-100 dark:border-gray-900 sm:rounded-2xl sm:shadow-xl">
+        <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center dark:border-gray-700 dark:bg-gray-900 sm:px-16">
           <Link href="/">
             <Image
               src="/join/logo.png"
@@ -29,13 +29,13 @@ export default function SignIn() {
             Only your email and profile picture will be stored.
           </p>
         </div>
-        <div className="flex flex-col space-y-3 bg-gray-50 px-4 py-8 sm:px-16">
+        <div className="flex flex-col space-y-3 bg-gray-50 px-4 py-8 dark:bg-gray-900 sm:px-16">
           <button
             disabled={googleClicked}
             className={`${
               googleClicked
-                ? "cursor-not-allowed border-gray-200 bg-gray-100"
-                : "border border-gray-200 bg-white text-black hover:bg-gray-50"
+                ? "cursor-not-allowed border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-700"
+                : "border border-gray-200 bg-white text-black hover:bg-gray-50 dark:border-gray-700 dark:bg-black dark:text-white dark:hover:bg-gray-700"
             } flex h-10 w-full items-center justify-center space-x-3 rounded-md border text-sm shadow-sm transition-all duration-75 focus:outline-none`}
             onClick={() => {
               setGoogleClicked(true);
@@ -47,7 +47,7 @@ export default function SignIn() {
             }}
           >
             {googleClicked ? (
-              <LoadingDots color="#808080" />
+              <LoadingDots />
             ) : (
               <>
                 <Google className="h-5 w-5" />
@@ -59,8 +59,8 @@ export default function SignIn() {
             disabled={githubClicked}
             className={`${
               githubClicked
-                ? "cursor-not-allowed border-gray-200 bg-gray-100"
-                : "border border-gray-200 bg-white text-black hover:bg-gray-50"
+                ? "cursor-not-allowed border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-700"
+                : "border border-gray-200 bg-white text-black hover:bg-gray-50 dark:border-gray-700 dark:bg-black dark:text-white dark:hover:bg-gray-700"
             } flex h-10 w-full items-center justify-center space-x-3 rounded-md border text-sm shadow-sm transition-all duration-75 focus:outline-none`}
             onClick={() => {
               setGitHubClicked(true);
@@ -72,7 +72,7 @@ export default function SignIn() {
             }}
           >
             {githubClicked ? (
-              <LoadingDots color="#808080" />
+              <LoadingDots />
             ) : (
               <>
                 <Github className="h-5 w-5" />
