@@ -3,8 +3,10 @@
   "extends": ["config:base"],
   "rangeStrategy": "bump",
   "prHourlyLimit": 0,
-  "ignoreDeps": [
-    "@prisma/client",
-    "prisma"
+  "packageRules": [
+    {
+      "matchPackageNames": ["@prisma/client", "prisma"],
+      "allowedVersions": "<5"
+    }
   ]
 }
