@@ -539,10 +539,10 @@
     lodash.merge "^4.6.2"
     postcss-selector-parser "6.0.10"
 
-"@tremor/react@^3.6.6":
-  version "3.6.6"
-  resolved "https://registry.yarnpkg.com/@tremor/react/-/react-3.6.6.tgz#acd050559ea6cdd3dade5b89f447468ef56a7993"
-  integrity sha512-JTt2rR+InEm6CMWFPy5/VYXY2LgGStYYaW70gTZ4xldzxyS+DRJdYaKd23latEMRRFnfGJXdjSWawHeRBoE4Rw==
+"@tremor/react@^3.7.1":
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/@tremor/react/-/react-3.7.1.tgz#17d36fcbb3be5d4e43b50805bbc3a3bd46652664"
+  integrity sha512-Sia7GdKpc3ZjZn8WFbejCUtvoSEuc75sWskrMl8BaEn+Di92cGFEH2Xry8FpOmfwEHLhp1CpfektodqZDwQlMA==
   dependencies:
     "@floating-ui/react" "^0.19.1"
     "@headlessui/react" "^1.7.14"
