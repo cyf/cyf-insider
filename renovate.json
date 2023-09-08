@@ -2,11 +2,5 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base"],
   "rangeStrategy": "bump",
-  "prHourlyLimit": 0,
-  "packageRules": [
-    {
-      "matchPackageNames": ["@prisma/client", "prisma"],
-      "allowedVersions": "<5"
-    }
-  ]
+  "prHourlyLimit": 0
 }
