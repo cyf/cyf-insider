@@ -9,14 +9,16 @@ import { sfPro, inter } from "@/styles/fonts";
 import { Suspense } from "react";
 import { Provider } from "react-wrap-balancer";
 import cx from "classnames";
+import { appWithTranslation } from "next-i18next";
 import Nav from "@/components/layout/nav";
 import Footer from "@/components/layout/footer";
 import { cacheThemeKey } from "@/constants/index";
+import nextI18NextConfig from "../next-i18next.config.js";
 
-export default function CYFApp({
+const CYFApp = ({
   Component,
   pageProps: { session, ...pageProps },
-}: AppProps<{ session: Session }>) {
+}: AppProps<{ session: Session }>) => {
   return (
     <Provider>
       <SessionProvider session={session} basePath="/join/api/auth">
@@ -45,4 +47,6 @@ export default function CYFApp({
       </SessionProvider>
     </Provider>
   );
-}
+};
+
+export default appWithTranslation(CYFApp, nextI18NextConfig);

@@ -6,6 +6,7 @@ import { Session } from "next-auth";
 import useScroll from "@/lib/hooks/use-scroll";
 import { useSignInModal } from "./sign-in-modal";
 import UserDropdown from "./user-dropdown";
+import LngDropdown from "./lng-dropdown";
 import ThemeDropdown from "./theme-dropdown";
 
 export default function NavBar({ session }: { session: Session | null }) {
@@ -34,6 +35,7 @@ export default function NavBar({ session }: { session: Session | null }) {
             <p>CYF</p>
           </Link>
           <div className="flex items-center">
+            <LngDropdown />
             <ThemeDropdown />
             {session ? (
               <UserDropdown session={session} />

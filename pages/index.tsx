@@ -1,15 +1,27 @@
-"use client";
 import Balancer from "react-wrap-balancer";
 import { JoinInsider } from "@/components/home/join-insider";
+import type { GetStaticProps, InferGetStaticPropsType } from 'next'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
-export default function Home() {
+type HomeProps = {
+  // Add custom props here
+};
+
+export default function Home(
+  props: InferGetStaticPropsType<typeof getStaticProps>,
+) {
+  const { t, i18n } = useTranslation("common");
+
+  console.log("index locale", i18n.language)
+
   return (
-    <div className="z-10 w-full max-w-xl px-5 xl:px-0">
+    <div className="z-10 w-full max-w-2xl px-5 xl:px-0">
       <h1
         className="animate-fade-up bg-clip-text text-center font-display text-4xl font-bold tracking-[-0.02em] text-black/80 opacity-0 drop-shadow-sm dark:text-white/80 md:text-7xl md:leading-[5rem]"
         style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
       >
-        <Balancer>CYF内测计划</Balancer>
+        <Balancer>{t("title")}</Balancer>
       </h1>
       <p
         className="mt-6 animate-fade-up text-center text-gray-500 opacity-0 dark:text-gray-400 md:text-xl"
@@ -27,3 +39,11 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps<HomeProps> = async ({
+  locale = "en",
+}) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ["common", "languages"], null, ['en', 'zh'])),
+  },
+});
