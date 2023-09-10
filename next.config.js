@@ -20,7 +20,7 @@ const nextConfig = {
   },
   env: {
     VERCEL: 0,
-    VERCEL_URL: "",
+    VERCEL_URL: process.env.NEXTAUTH_URL,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
   },
