@@ -18,20 +18,11 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ["@tremor/react"],
   },
-  async redirects() {
-    return [
-      {
-        source: "/github",
-        destination: "https://github.com/cyf/cyf-insider",
-        permanent: false,
-      },
-    ];
-  },
   env: {
     VERCEL: 0,
+    VERCEL_URL: "",
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
-    VERCEL_GIT_COMMIT_SHA: process.env.VERCEL_GIT_COMMIT_SHA,
   },
 };
 
