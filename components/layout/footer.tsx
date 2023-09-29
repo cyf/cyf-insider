@@ -58,7 +58,7 @@ export default function Footer() {
               <ul className="font-medium text-gray-600 dark:text-gray-400">
                 <li className="mb-4">
                   <a
-                    href="https://github.com/kjxbyz/cyf-insider"
+                    href="https://github.com/cyf/cyf-insider"
                     className="hover:underline "
                   >
                     Github
