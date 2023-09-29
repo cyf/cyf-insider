@@ -10,6 +10,7 @@ import {
 } from "react";
 import { LoadingDots, Google, Github } from "@/components/shared/icons";
 import Image from "next/image";
+import Link from "next/link";
 
 const SignInModal = ({
   showSignInModal,
@@ -83,6 +84,12 @@ const SignInModal = ({
               </>
             )}
           </button>
+        </div>
+        <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-2 text-center dark:border-gray-700 dark:bg-gray-900 sm:px-16">
+          <p className="text-sm text-gray-500">
+            I have carefully read and agreed to <Link className="text-blue-500" href="/legal/privacy">Privacy Policy</Link>
+            {" "}and <Link className="text-blue-500" href="/legal/terms-of-use">Terms and Conditions</Link>
+          </p>
         </div>
       </div>
     </Modal>
