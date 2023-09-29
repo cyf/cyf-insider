@@ -1,3 +1,5 @@
+const { withContentlayer } = require("next-contentlayer");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   basePath: "/join",
@@ -13,6 +15,7 @@ const nextConfig = {
       "chenyifaer.com",
       "visitor-badge.laobi.icu",
       "vercel.com",
+      "www.kjxbyz.com",
     ],
   },
   experimental: {
@@ -26,4 +29,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withContentlayer(nextConfig);

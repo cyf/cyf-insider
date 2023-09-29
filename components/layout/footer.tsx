@@ -73,7 +73,7 @@ export default function Footer() {
               <ul className="font-medium text-gray-600 dark:text-gray-400">
                 <li className="mb-4">
                   <a
-                    href="https://chenyifaer.com/fafa-runner/privacy"
+                    href="https://chenyifaer.com/join/legal/privacy"
                     className="hover:underline"
                   >
                     Privacy Policy
@@ -81,7 +81,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="https://chenyifaer.com/fafa-runner/terms-of-use"
+                    href="https://chenyifaer.com/join/legal/terms-of-use"
                     className="hover:underline"
                   >
                     Terms &amp; Conditions

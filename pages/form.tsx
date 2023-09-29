@@ -32,9 +32,7 @@ export default function Form() {
                 onChange={(e) => {}}
                 className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
               >
-                <option value="fafa-runner">
-                  FaFa Runner
-                </option>
+                <option value="fafa-runner">FaFa Runner</option>
               </select>
               <div className="mt-1 text-xs">
                 <span>选择参与内测的游戏</span>
@@ -46,9 +44,7 @@ export default function Form() {
                 平台
               </div>
               <div className="flex">
-                <div
-                  className="mr-4 flex items-center"
-                >
+                <div className="mr-4 flex items-center">
                   <input
                     id="android"
                     type="radio"
@@ -62,9 +58,7 @@ export default function Form() {
                     Android
                   </label>
                 </div>
-                <div
-                  className="mr-4 flex items-center"
-                >
+                <div className="mr-4 flex items-center">
                   <input
                     id="ios"
                     type="radio"
