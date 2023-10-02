@@ -45,7 +45,12 @@ export default function CYFApp({
           </div>
         </ThemeProvider>
       </SessionProvider>
-      <ScrollToTop smooth component={<BiArrowToTop className="mx-auto my-0 h-5 w-5 text-gray-700" />} />
+      <ScrollToTop
+        smooth
+        component={
+          <BiArrowToTop className="mx-auto my-0 h-5 w-5 text-gray-700" />
+        }
+      />
     </Provider>
   );
 }

@@ -30,7 +30,11 @@ export default function Legal({
               <div className="mb-6 flex items-center">
                 {post.authorImg && (
                   <div className="mr-3 flex shrink-0">
-                    <a className="relative" href="https://www.kjxbyz.com/" target="_blank">
+                    <a
+                      className="relative"
+                      href="https://www.kjxbyz.com/"
+                      target="_blank"
+                    >
                       <span
                         className="absolute inset-0 -m-px"
                         aria-hidden="true"
@@ -49,7 +53,11 @@ export default function Legal({
                 )}
                 <div>
                   <span className="text-gray-600 dark:text-gray-300">By </span>
-                  <a className="font-medium hover:underline dark:text-gray-300" href="https://www.kjxbyz.com/" target="_blank">
+                  <a
+                    className="font-medium hover:underline dark:text-gray-300"
+                    href="https://www.kjxbyz.com/"
+                    target="_blank"
+                  >
                     {post.author}
                   </a>
                   <span className="text-gray-600 dark:text-gray-300">

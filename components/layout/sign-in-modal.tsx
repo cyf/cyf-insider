@@ -26,8 +26,8 @@ const SignInModal = ({
 
   const onCheckboxChange = (e: any) => {
     e.target.checked && setRed(false);
-    setChecked(e.target.checked)
-  }
+    setChecked(e.target.checked);
+  };
 
   return (
     <Modal showModal={showSignInModal} setShowModal={setShowSignInModal}>
@@ -101,10 +101,23 @@ const SignInModal = ({
           </button>
         </div>
         <div className="flex flex-row items-start justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-2 text-center dark:border-gray-700 dark:bg-gray-900 sm:px-16">
-          <input checked={checked} type="checkbox" onChange={onCheckboxChange} className={`w-4 h-4 mt-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 ${showRed ? "border-red-400 border-2" : ""}`} />
-          <p className="text-sm text-gray-500 mt-3">
-            I have carefully read and agreed to <Link className="text-blue-500" href="/legal/privacy">Privacy Policy</Link>
-            {" "}and <Link className="text-blue-500" href="/legal/terms-of-use">Terms and Conditions</Link>
+          <input
+            checked={checked}
+            type="checkbox"
+            onChange={onCheckboxChange}
+            className={`mt-3 h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600 ${
+              showRed ? "border-2 border-red-400" : ""
+            }`}
+          />
+          <p className="mt-3 text-sm text-gray-500">
+            I have carefully read and agreed to{" "}
+            <Link className="text-blue-500" href="/legal/privacy">
+              Privacy Policy
+            </Link>{" "}
+            and{" "}
+            <Link className="text-blue-500" href="/legal/terms-of-use">
+              Terms and Conditions
+            </Link>
           </p>
         </div>
       </div>
