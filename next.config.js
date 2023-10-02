@@ -26,6 +26,7 @@ const nextConfig = {
     VERCEL_URL: process.env.NEXTAUTH_URL,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
+    NEXT_PUBLIC_GOOGLE_ID: process.env.NEXT_PUBLIC_GOOGLE_ID,
   },
 };
 
