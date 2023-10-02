@@ -9,6 +9,8 @@ import { sfPro, inter } from "@/styles/fonts";
 import { Suspense } from "react";
 import { Provider } from "react-wrap-balancer";
 import cx from "classnames";
+import { BiArrowToTop } from "react-icons/bi";
+import ScrollToTop from "@/components/layout/scroll-to-top";
 import Nav from "@/components/layout/nav";
 import Footer from "@/components/layout/footer";
 import { cacheThemeKey } from "@/constants/index";
@@ -43,6 +45,7 @@ export default function CYFApp({
         </ThemeProvider>
         <Analytics />
       </SessionProvider>
+      <ScrollToTop smooth component={<BiArrowToTop className="mx-auto my-0 h-5 w-5 text-gray-700" />} />
     </Provider>
   );
 }
