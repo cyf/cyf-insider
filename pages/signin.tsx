@@ -25,13 +25,13 @@ export default function SignIn() {
           <Link href="/">
             <Image
               src="/join/logo.png"
-              alt="CYF logo"
+              alt="CYF Insider logo"
               className="h-10 w-10 rounded-full"
               width={20}
               height={20}
             />
           </Link>
-          <h3 className="text-xl font-semibold">Sign in to CYF</h3>
+          <h3 className="text-xl font-semibold">Sign in to CYF Insider</h3>
           <p className="text-sm text-gray-500">
             Only your email and profile picture will be stored.
           </p>

@@ -15,10 +15,10 @@ export default function Footer() {
                 height={50}
                 width={50}
                 className="mr-3 rounded-full"
-                alt="CYF Logo"
+                alt="CYF Insider Logo"
               />
               <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
-                CYF
+                CYF Insider
               </span>
             </a>
             <p className="mt-4">

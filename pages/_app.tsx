@@ -15,7 +15,7 @@ import Nav from "@/components/layout/nav";
 import Footer from "@/components/layout/footer";
 import { cacheThemeKey } from "@/constants/index";
 
-export default function CYFApp({
+export default function MainApp({
   Component,
   pageProps: { session, ...pageProps },
 }: AppProps<{ session: Session }>) {
