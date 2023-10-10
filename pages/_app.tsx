@@ -1,6 +1,5 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { Analytics } from "@vercel/analytics/react";
 import type { Session } from "next-auth";
 import { ThemeProvider } from "next-themes";
 import { SessionProvider } from "next-auth/react";
@@ -10,12 +9,14 @@ import { Suspense } from "react";
 import { Provider } from "react-wrap-balancer";
 import cx from "classnames";
 import { appWithTranslation } from "next-i18next";
+import { BiArrowToTop } from "react-icons/bi";
+import GoogleAnalytics from "@/components/shared/google-analytics";
+import ScrollToTop from "@/components/layout/scroll-to-top";
 import Nav from "@/components/layout/nav";
 import Footer from "@/components/layout/footer";
 import { cacheThemeKey } from "@/constants/index";
-import nextI18NextConfig from "../next-i18next.config.js";
 
-const CYFApp = ({
+const MainApp = ({
   Component,
   pageProps: { session, ...pageProps },
 }: AppProps<{ session: Session }>) => {
@@ -39,14 +40,20 @@ const CYFApp = ({
             </Suspense>
             <main className="flex min-h-screen w-full flex-col items-center justify-center py-32">
               <Component {...pageProps} />
+              <GoogleAnalytics />
             </main>
             <Footer />
           </div>
         </ThemeProvider>
-        <Analytics />
       </SessionProvider>
+      <ScrollToTop
+        smooth
+        component={
+          <BiArrowToTop className="mx-auto my-0 h-5 w-5 text-gray-700" />
+        }
+      />
     </Provider>
   );
 };
 
-export default appWithTranslation(CYFApp, nextI18NextConfig);
+export default appWithTranslation(MainApp);

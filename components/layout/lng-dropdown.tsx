@@ -15,7 +15,7 @@ export default function LngDropdown() {
     router.push({ pathname, query }, asPath, { locale: newLocale });
   };
 
-  console.log("i18nSettings.locales", i18nSettings.locales);
+  // console.log("i18nSettings.locales", i18nSettings.locales);
 
   return (
     <div className="relative mr-4 inline-block text-left">

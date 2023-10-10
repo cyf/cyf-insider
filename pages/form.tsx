@@ -15,7 +15,6 @@ export default function Form() {
             onSubmit={async (e) => {
               e.preventDefault();
               setSubmitClicked(true);
-              console.log(e);
             }}
             className="flex flex-col space-y-3"
           >
@@ -28,12 +27,11 @@ export default function Form() {
                 name="game"
                 placeholder="please select your game"
                 required
+                value="fafa-runner"
                 onChange={(e) => {}}
                 className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
               >
-                <option value="fafa-runner" selected>
-                  FaFa Runner
-                </option>
+                <option value="fafa-runner">FaFa Runner</option>
               </select>
               <div className="mt-1 text-xs">
                 <span>选择参与内测的游戏</span>
@@ -45,31 +43,27 @@ export default function Form() {
                 平台
               </div>
               <div className="flex">
-                <div
-                  className="mr-4 flex items-center"
-                  onClick={() => setPlatform("android")}
-                >
+                <div className="mr-4 flex items-center">
                   <input
                     id="android"
                     type="radio"
                     value="android"
                     name="inline-radio-group"
                     checked={platform === "android"}
+                    onChange={() => setPlatform("android")}
                     className="h-4 w-4 border-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-500"
                   />
                   <label htmlFor="android" className="ml-2 text-sm font-medium">
                     Android
                   </label>
                 </div>
-                <div
-                  className="mr-4 flex items-center"
-                  onClick={() => setPlatform("ios")}
-                >
+                <div className="mr-4 flex items-center">
                   <input
                     id="ios"
                     type="radio"
                     value="ios"
                     name="inline-radio-group"
+                    onChange={() => setPlatform("ios")}
                     checked={platform === "ios"}
                     className="h-4 w-4 border-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-500"
                   />

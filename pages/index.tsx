@@ -1,6 +1,6 @@
 import Balancer from "react-wrap-balancer";
 import { JoinInsider } from "@/components/home/join-insider";
-import type { GetStaticProps, InferGetStaticPropsType } from 'next'
+import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 
@@ -13,7 +13,7 @@ export default function Home(
 ) {
   const { t, i18n } = useTranslation("common");
 
-  console.log("index locale", i18n.language)
+  // console.log("index locale", i18n.language)
 
   return (
     <div className="z-10 w-full max-w-2xl px-5 xl:px-0">
@@ -44,6 +44,9 @@ export const getStaticProps: GetStaticProps<HomeProps> = async ({
   locale = "en",
 }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ["common", "languages"], null, ['en', 'zh'])),
+    ...(await serverSideTranslations(locale, ["common", "languages"], null, [
+      "en",
+      "zh",
+    ])),
   },
 });

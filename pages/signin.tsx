@@ -8,8 +8,15 @@ import { useRouter } from "next/router";
 export default function SignIn() {
   const router = useRouter();
   const { callbackUrl } = router.query as { callbackUrl?: string };
+  const [checked, setChecked] = useState(false);
+  const [showRed, setRed] = useState(false);
   const [googleClicked, setGoogleClicked] = useState(false);
   const [githubClicked, setGitHubClicked] = useState(false);
+
+  const onCheckboxChange = (e: any) => {
+    e.target.checked && setRed(false);
+    setChecked(e.target.checked);
+  };
 
   return (
     <div className="flex w-screen justify-center">
@@ -18,13 +25,13 @@ export default function SignIn() {
           <Link href="/">
             <Image
               src="/join/logo.png"
-              alt="CYF logo"
+              alt="CYF Insider logo"
               className="h-10 w-10 rounded-full"
               width={20}
               height={20}
             />
           </Link>
-          <h3 className="text-xl font-semibold">Sign in to CYF</h3>
+          <h3 className="text-xl font-semibold">Sign in to CYF Insider</h3>
           <p className="text-sm text-gray-500">
             Only your email and profile picture will be stored.
           </p>
@@ -38,6 +45,10 @@ export default function SignIn() {
                 : "border border-gray-200 bg-white text-black hover:bg-gray-50 dark:border-gray-700 dark:bg-black dark:text-white dark:hover:bg-gray-700"
             } flex h-10 w-full items-center justify-center space-x-3 rounded-md border text-sm shadow-sm transition-all duration-75 focus:outline-none`}
             onClick={() => {
+              if (!checked) {
+                setRed(true);
+                return;
+              }
               setGoogleClicked(true);
               signIn("google", {
                 ...(callbackUrl ? { callbackUrl } : {}),
@@ -63,6 +74,10 @@ export default function SignIn() {
                 : "border border-gray-200 bg-white text-black hover:bg-gray-50 dark:border-gray-700 dark:bg-black dark:text-white dark:hover:bg-gray-700"
             } flex h-10 w-full items-center justify-center space-x-3 rounded-md border text-sm shadow-sm transition-all duration-75 focus:outline-none`}
             onClick={() => {
+              if (!checked) {
+                setRed(true);
+                return;
+              }
               setGitHubClicked(true);
               signIn("github", {
                 ...(callbackUrl ? { callbackUrl } : {}),
@@ -80,6 +95,28 @@ export default function SignIn() {
               </>
             )}
           </button>
+        </div>
+        <div className="flex flex-row items-start justify-center border-b border-gray-200 bg-white px-4 pb-8 text-center dark:border-gray-700 dark:bg-gray-900 sm:px-16">
+          <input
+            checked={checked}
+            type="checkbox"
+            onChange={onCheckboxChange}
+            className={`mt-[0.1875rem] h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600 ${
+              showRed
+                ? "border-2 border-red-400 dark:border-2 dark:border-red-400"
+                : ""
+            }`}
+          />
+          <p className="text-sm text-gray-500">
+            I have carefully read and agreed to{" "}
+            <Link className="text-blue-500" href="/legal/privacy">
+              Privacy Policy
+            </Link>{" "}
+            and{" "}
+            <Link className="text-blue-500" href="/legal/terms-of-use">
+              Terms and Conditions
+            </Link>
+          </p>
         </div>
       </div>
     </div>

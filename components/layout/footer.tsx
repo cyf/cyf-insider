@@ -15,10 +15,10 @@ export default function Footer() {
                 height={50}
                 width={50}
                 className="mr-3 rounded-full"
-                alt="CYF Logo"
+                alt="CYF Insider Logo"
               />
               <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
-                CYF
+                CYF Insider
               </span>
             </a>
             <p className="mt-4">
@@ -58,7 +58,7 @@ export default function Footer() {
               <ul className="font-medium text-gray-600 dark:text-gray-400">
                 <li className="mb-4">
                   <a
-                    href="https://github.com/kjxbyz/cyf-insider"
+                    href="https://github.com/cyf/cyf-insider"
                     className="hover:underline "
                   >
                     Github
@@ -73,7 +73,7 @@ export default function Footer() {
               <ul className="font-medium text-gray-600 dark:text-gray-400">
                 <li className="mb-4">
                   <a
-                    href="https://chenyifaer.com/fafa-runner/privacy"
+                    href="https://chenyifaer.com/join/legal/privacy"
                     className="hover:underline"
                   >
                     Privacy Policy
@@ -81,7 +81,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="https://chenyifaer.com/fafa-runner/terms-of-use"
+                    href="https://chenyifaer.com/join/legal/terms-of-use"
                     className="hover:underline"
                   >
                     Terms &amp; Conditions

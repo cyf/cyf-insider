@@ -32,7 +32,7 @@ export default function NavBar({ session }: { session: Session | null }) {
               height="30"
               className="mr-2 rounded-sm"
             ></Image>
-            <p>CYF</p>
+            <p>CYF Insider</p>
           </Link>
           <div className="flex items-center">
             <LngDropdown />

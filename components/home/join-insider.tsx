@@ -1,13 +1,13 @@
 "use client";
 import { useRouter } from "next/router";
 import { RiAddCircleLine } from "react-icons/ri";
-import { useTranslation } from "next-i18next";
+// import { useTranslation } from "next-i18next";
 
 export function JoinInsider() {
   const router = useRouter();
-  const { i18n } = useTranslation();
+  // const { i18n } = useTranslation();
 
-  console.log("router.locale", router.locale, router.basePath, i18n.language);
+  // console.log("router.locale", router.locale, router.basePath, i18n.language);
 
   return (
     <div
