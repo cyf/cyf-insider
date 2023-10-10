@@ -15,7 +15,6 @@ export default function Form() {
             onSubmit={async (e) => {
               e.preventDefault();
               setSubmitClicked(true);
-              console.log(e);
             }}
             className="flex flex-col space-y-3"
           >
