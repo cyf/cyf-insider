@@ -16,7 +16,7 @@ export default function ThemeDropdown() {
   }, [theme]);
 
   return (
-    <div className="relative mr-4 inline-block text-left">
+    <div className="relative mr-2 inline-block text-left">
       <Popover
         content={
           <div className="w-full rounded-md bg-white p-2 dark:bg-black sm:w-56">

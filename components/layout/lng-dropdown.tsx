@@ -18,7 +18,7 @@ export default function LngDropdown() {
   // console.log("i18nSettings.locales", i18nSettings.locales);
 
   return (
-    <div className="relative mr-4 inline-block text-left">
+    <div className="relative mr-2 inline-block text-left">
       <Popover
         content={
           <div className="w-full rounded-md bg-white p-2 dark:bg-black sm:w-56">
@@ -45,7 +45,7 @@ export default function LngDropdown() {
       >
         <button
           onClick={() => setOpenPopover(!openPopover)}
-          className="mr-2 flex h-8 w-8 items-center justify-center overflow-hidden rounded-full transition-all duration-75 focus:outline-none active:scale-95 sm:h-9 sm:w-9"
+          className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full transition-all duration-75 focus:outline-none active:scale-95 sm:h-9 sm:w-9"
         >
           <RiTranslate className="h-5 w-5" />
         </button>
