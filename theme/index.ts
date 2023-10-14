@@ -12,17 +12,17 @@ export interface Theme {
 export const themes: Theme[] = [
   {
     mode: "system",
-    name: "Auto",
+    name: "Auto Mode",
     icon: MdOutlineDesktopMac,
   },
   {
     mode: "dark",
-    name: "Dark",
+    name: "Dark Mode",
     icon: MdDarkMode,
   },
   {
     mode: "light",
-    name: "Light",
+    name: "Light Mode",
     icon: MdLightMode,
   },
 ];
