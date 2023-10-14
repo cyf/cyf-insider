@@ -13,6 +13,7 @@ import GoogleAnalytics from "@/components/shared/google-analytics";
 import ScrollToTop from "@/components/layout/scroll-to-top";
 import Nav from "@/components/layout/nav";
 import Footer from "@/components/layout/footer";
+import Particles from "@/components/layout/particles";
 import { cacheThemeKey } from "@/constants/index";
 
 export default function MainApp({
@@ -33,7 +34,7 @@ export default function MainApp({
               <meta name="description" content="CYF Insider" />
               <link rel="shortcut icon" href="/join/favicon.ico" />
             </Head>
-            <div className="fixed h-screen w-full bg-cyan-50 dark:bg-black" />
+            <Particles />
             <Suspense fallback="...">
               <Nav />
             </Suspense>
