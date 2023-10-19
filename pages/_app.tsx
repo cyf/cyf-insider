@@ -28,7 +28,13 @@ export default function MainApp({
           storageKey={cacheThemeKey}
           attribute="class"
         >
-          <div className={cx(sfPro.variable, inter.variable)}>
+          <div
+            className={cx(
+              sfPro.variable,
+              inter.variable,
+              "flex min-h-screen flex-col",
+            )}
+          >
             <Head>
               <title>CYF Insider</title>
               <meta name="description" content="CYF Insider" />
@@ -38,7 +44,7 @@ export default function MainApp({
             <Suspense fallback="...">
               <Nav />
             </Suspense>
-            <main className="flex min-h-screen w-full flex-col items-center justify-center py-32">
+            <main className="flex w-full flex-1 flex-col items-center justify-center py-32">
               <Component {...pageProps} />
               <GoogleAnalytics />
             </main>

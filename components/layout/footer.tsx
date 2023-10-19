@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="absolute w-full border-gray-200 py-5">
+    <footer className="w-full border-gray-200 py-5">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
@@ -99,7 +99,7 @@ export default function Footer() {
               href="https://www.chenyifaer.com/join"
               className="hover:underline"
             >
-              CYF Insider™
+              CYF Insider
             </a>
             . All Rights Reserved.{" "}
             {process.env.VERCEL_GIT_COMMIT_SHA && (
