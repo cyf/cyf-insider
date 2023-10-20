@@ -14,7 +14,8 @@ import ScrollToTop from "@/components/layout/scroll-to-top";
 import Nav from "@/components/layout/nav";
 import Footer from "@/components/layout/footer";
 import Particles from "@/components/layout/particles";
-import { cacheThemeKey } from "@/constants/index";
+import { cacheThemeKey } from "@/constants";
+import { defaultTheme } from "@/theme";
 
 export default function MainApp({
   Component,
@@ -24,7 +25,7 @@ export default function MainApp({
     <Provider>
       <SessionProvider session={session} basePath="/join/api/auth">
         <ThemeProvider
-          defaultTheme="system"
+          defaultTheme={defaultTheme}
           storageKey={cacheThemeKey}
           attribute="class"
         >
