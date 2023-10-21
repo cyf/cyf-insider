@@ -109,9 +109,10 @@ export default function Legal({
 }
 
 export const getServerSideProps = (async (context) => {
+  const type = context.params?.type;
   const slug = context.params?.slug;
-  if (!slug) return notFound();
-  const post = allPosts.find((post) => post.slug === slug);
+  if (!type || !slug) return notFound();
+  const post = allPosts.find((post) => post.slug === `${type}/${slug}`);
   if (!post) return notFound();
   return { props: { post } };
 }) satisfies GetServerSideProps<{
