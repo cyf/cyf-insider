@@ -23,7 +23,7 @@ export default function Home() {
         <Balancer>CYF Insider Program</Balancer>
       </h1>
       <p
-        className="mt-6 animate-fade-up text-center text-gray-500 opacity-0 dark:text-gray-400 md:text-xl"
+        className="mt-6 animate-fade-up text-center text-gray-200 opacity-0 md:text-xl"
         style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
       >
         <Balancer>
@@ -36,9 +36,8 @@ export default function Home() {
             animationDuration={2500}
           >
             By participating in the insider program, you will get the latest
-            product experience
+            product experience.
           </RoughNotation>
-          .
         </Balancer>
       </p>
       <p
