@@ -16,7 +16,7 @@ function generateSiteMap() {
         `
           <url>
             <loc>${domain}/${post.slug}</loc>
-            <lastmod>${new Date()}</lastmod>
+            <lastmod>${new Date().toISOString()}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>1</priority>
           </url>
