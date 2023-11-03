@@ -1,10 +1,12 @@
-import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import { allPosts, Post } from "contentlayer/generated";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import PostDate from "@/components/post/post-date";
 import { Mdx } from "@/components/mdx/mdx";
 import PostNav from "@/components/post/post-nav";
+
+import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
 export default function Legal({
   post,
@@ -109,11 +111,25 @@ export default function Legal({
 }
 
 export const getServerSideProps = (async (context) => {
+  const locale = context.locale;
+  const type = context.params?.type;
   const slug = context.params?.slug;
-  if (!slug) return notFound();
-  const post = allPosts.find((post) => post.slug === slug);
+  if (!locale || !type || !slug) return notFound();
+  const post = allPosts.find(
+    (post) => post.slug === `${locale}/${type}/${slug}`,
+  );
   if (!post) return notFound();
-  return { props: { post } };
+  return {
+    props: {
+      post,
+      ...(await serverSideTranslations(
+        locale,
+        ["post", "header", "footer"],
+        null,
+        ["en", "zh"],
+      )),
+    },
+  };
 }) satisfies GetServerSideProps<{
   post: Post;
 }>;

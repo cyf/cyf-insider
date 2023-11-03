@@ -1,8 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
 export default function Footer() {
+  const { t, i18n } = useTranslation("footer");
+  const fullYear = new Date().getFullYear();
   return (
-    <footer className="absolute w-full border-gray-200 py-5">
+    <footer className="w-full border-gray-200 py-5">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
@@ -11,7 +15,7 @@ export default function Footer() {
               className="flex items-center"
             >
               <Image
-                src="https://www.chenyifaer.com/join/logo.png"
+                src="/join/logo.png"
                 height={50}
                 width={50}
                 className="mr-3 rounded-full"
@@ -30,27 +34,7 @@ export default function Footer() {
               />
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
-            <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-gray-300">
-                Resources
-              </h2>
-              <ul className="font-medium text-gray-600 dark:text-gray-400">
-                <li className="mb-4">
-                  <a href="https://nextjs.org/" className="hover:underline">
-                    Next
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://tailwindcss.com/"
-                    className="hover:underline"
-                  >
-                    Tailwind CSS
-                  </a>
-                </li>
-              </ul>
-            </div>
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 sm:gap-6">
             <div>
               <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-gray-300">
                 Follow us
@@ -72,20 +56,24 @@ export default function Footer() {
               </h2>
               <ul className="font-medium text-gray-600 dark:text-gray-400">
                 <li className="mb-4">
-                  <a
-                    href="https://chenyifaer.com/join/legal/privacy"
+                  <Link
+                    href={`${
+                      i18n.language === "zh" ? "/zh" : ""
+                    }/legal/privacy`}
                     className="hover:underline"
                   >
-                    Privacy Policy
-                  </a>
+                    {t("privacy")}
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="https://chenyifaer.com/join/legal/terms-of-use"
+                  <Link
+                    href={`${
+                      i18n.language === "zh" ? "/zh" : ""
+                    }/legal/terms-of-use`}
                     className="hover:underline"
                   >
-                    Terms &amp; Conditions
-                  </a>
+                    {t("terms-of-use")}
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -94,14 +82,14 @@ export default function Footer() {
         <hr className="my-6 border-gray-200 dark:border-gray-500 sm:mx-auto lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
-            © 2023{" "}
+            © {`2023${fullYear === 2023 ? "" : `-${fullYear}`}`}&nbsp;
             <a
               href="https://www.chenyifaer.com/join"
               className="hover:underline"
             >
-              CYF Insider™
+              CYF Insider
             </a>
-            . All Rights Reserved.{" "}
+            .&nbsp;{t("copyright")}&nbsp;
             {process.env.VERCEL_GIT_COMMIT_SHA && (
               <a
                 href={`https://github.com/cyf/cyf-insider/commit/${process.env.VERCEL_GIT_COMMIT_SHA}`}
@@ -136,28 +124,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-
-    // <div className="absolute w-full border-gray-200 py-5 text-center">
-    //   <p className="mr-2 inline-block text-gray-500">
-    //     <a
-    //       className="font-medium text-gray-800 underline transition-colors"
-    //       href="https://chenyifaer.com/fafa-runner/privacy"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Privacy
-    //     </a>
-    //   </p>
-    //   <p className="inline-block text-gray-500">
-    //     <a
-    //       className="font-medium text-gray-800 underline transition-colors"
-    //       href="https://chenyifaer.com/fafa-runner/terms-of-use"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Terms of Use
-    //     </a>
-    //   </p>
-    // </div>
   );
 }

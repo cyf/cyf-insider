@@ -1,4 +1,8 @@
 import Balancer from "react-wrap-balancer";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+
+import type { GetStaticProps, InferGetStaticPropsType } from "next";
 
 export default function UserFormList() {
   return (
@@ -12,3 +16,16 @@ export default function UserFormList() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps<{}> = async ({
+  locale = "en",
+}) => ({
+  props: {
+    ...(await serverSideTranslations(
+      locale,
+      ["list", "header", "footer"],
+      null,
+      ["en", "zh"],
+    )),
+  },
+});

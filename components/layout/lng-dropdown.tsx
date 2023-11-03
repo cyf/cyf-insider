@@ -3,19 +3,17 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { RiTranslate } from "react-icons/ri";
 import Popover from "@/components/shared/popover";
-import { i18n as i18nSettings } from "../../next-i18next.config";
+import { i18n as i18nSettings } from "@/next-i18next.config";
 
 export default function LngDropdown() {
   const router = useRouter();
-  const { t, i18n } = useTranslation(["languages"]);
+  const { t, i18n } = useTranslation(["header"]);
   const [openPopover, setOpenPopover] = useState(false);
 
-  const onToggleLanguageClick = (newLocale: string) => {
+  const onToggleLanguageClick = (locale: string) => {
     const { pathname, asPath, query } = router;
-    router.push({ pathname, query }, asPath, { locale: newLocale });
+    router.push({ pathname, query }, asPath, { locale });
   };
-
-  // console.log("i18nSettings.locales", i18nSettings.locales);
 
   return (
     <div className="relative mr-2 inline-block text-left">
@@ -33,7 +31,7 @@ export default function LngDropdown() {
                       : ""
                   }`}
                 >
-                  <p className="text-sm">{t(locale)}</p>
+                  <p className="text-sm">{t(`languages.${locale}`)}</p>
                 </button>
               );
             })}

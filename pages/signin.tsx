@@ -1,9 +1,13 @@
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { signIn } from "next-auth/react";
-import { Github, Google, LoadingDots } from "@/components/shared/icons";
 import { useRouter } from "next/router";
+import { signIn } from "next-auth/react";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+import { Github, Google, LoadingDots } from "@/components/shared/icons";
+
+import type { GetStaticProps, InferGetStaticPropsType } from "next";
 
 export default function SignIn() {
   const router = useRouter();
@@ -122,3 +126,16 @@ export default function SignIn() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps<{}> = async ({
+  locale = "en",
+}) => ({
+  props: {
+    ...(await serverSideTranslations(
+      locale,
+      ["common", "header", "footer"],
+      null,
+      ["en", "zh"],
+    )),
+  },
+});

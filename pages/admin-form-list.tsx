@@ -2,10 +2,14 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { Card, Title, Text } from "@tremor/react";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 import Search from "@/components/shared/search";
 import UsersTable from "@/components/shared/table";
 import type { User } from "@/components/shared/table";
 import Loading from "@/components/shared/loading";
+
+import type { GetStaticProps, InferGetStaticPropsType } from "next";
 
 export default function AdminFormList() {
   const params = useSearchParams();
@@ -52,3 +56,16 @@ export default function AdminFormList() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps<{}> = async ({
+  locale = "en",
+}) => ({
+  props: {
+    ...(await serverSideTranslations(
+      locale,
+      ["list", "header", "footer"],
+      null,
+      ["en", "zh"],
+    )),
+  },
+});

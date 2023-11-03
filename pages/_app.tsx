@@ -1,5 +1,4 @@
 import type { AppProps } from "next/app";
-import Head from "next/head";
 import type { Session } from "next-auth";
 import { ThemeProvider } from "next-themes";
 import { SessionProvider } from "next-auth/react";
@@ -14,7 +13,10 @@ import GoogleAnalytics from "@/components/shared/google-analytics";
 import ScrollToTop from "@/components/layout/scroll-to-top";
 import Nav from "@/components/layout/nav";
 import Footer from "@/components/layout/footer";
-import { cacheThemeKey } from "@/constants/index";
+import Particles from "@/components/layout/particles";
+import { cacheThemeKey } from "@/constants";
+import { defaultTheme } from "@/theme";
+import nextI18nConfig from "../next-i18next.config";
 
 const MainApp = ({
   Component,
@@ -24,21 +26,22 @@ const MainApp = ({
     <Provider>
       <SessionProvider session={session} basePath="/join/api/auth">
         <ThemeProvider
-          defaultTheme="system"
+          defaultTheme={defaultTheme}
           storageKey={cacheThemeKey}
           attribute="class"
         >
-          <div className={cx(sfPro.variable, inter.variable)}>
-            <Head>
-              <title>CYF Insider</title>
-              <meta name="description" content="CYF Insider" />
-              <link rel="shortcut icon" href="/join/favicon.ico" />
-            </Head>
-            <div className="fixed h-screen w-full bg-cyan-50 dark:bg-black" />
+          <div
+            className={cx(
+              sfPro.variable,
+              inter.variable,
+              "flex min-h-screen flex-col",
+            )}
+          >
+            <Particles />
             <Suspense fallback="...">
               <Nav />
             </Suspense>
-            <main className="flex min-h-screen w-full flex-col items-center justify-center py-32">
+            <main className="flex w-full flex-1 flex-col items-center justify-center py-32">
               <Component {...pageProps} />
               <GoogleAnalytics />
             </main>
@@ -56,4 +59,4 @@ const MainApp = ({
   );
 };
 
-export default appWithTranslation(MainApp);
+export default appWithTranslation(MainApp, nextI18nConfig);

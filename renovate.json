@@ -2,5 +2,12 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base"],
   "rangeStrategy": "bump",
-  "prHourlyLimit": 0
+  "prHourlyLimit": 0,
+  "ignoreDeps": ["node"],
+  "packageRules": [
+    {
+      "allowedVersions": "18",
+      "matchPackageNames": ["@types/node"]
+    }
+  ]
 }

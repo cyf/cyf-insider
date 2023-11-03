@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { RiAddCircleLine } from "react-icons/ri";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 import { LoadingDots } from "@/components/shared/icons";
+
+import type { GetStaticProps, InferGetStaticPropsType } from "next";
 
 export default function Form() {
   const [submitClicked, setSubmitClicked] = useState(false);
@@ -130,3 +134,16 @@ export default function Form() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps<{}> = async ({
+  locale = "en",
+}) => ({
+  props: {
+    ...(await serverSideTranslations(
+      locale,
+      ["form", "header", "footer"],
+      null,
+      ["en", "zh"],
+    )),
+  },
+});

@@ -1,12 +1,14 @@
 declare namespace NodeJS {
   export interface ProcessEnv {
-    NEXTAUTH_URL: string;
-    NEXTAUTH_SECRET: string;
-    GITHUB_CLIENT_ID: string;
-    GITHUB_CLIENT_SECRET: string;
+    POSTGRES_PRISMA_URL: string;
+    POSTGRES_URL_NON_POOLING: string;
     GOOGLE_CLIENT_ID: string;
     GOOGLE_CLIENT_SECRET: string;
-    NEXT_PUBLIC_GOOGLE_ID: string;
+    GITHUB_CLIENT_ID: string;
+    GITHUB_CLIENT_SECRET: string;
+    NEXTAUTH_URL: string;
+    NEXTAUTH_SECRET: string;
     VERCEL_GIT_COMMIT_SHA: string;
+    NEXT_PUBLIC_GOOGLE_ID: string;
   }
 }

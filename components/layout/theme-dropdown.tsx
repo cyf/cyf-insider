@@ -3,16 +3,18 @@
 import { useState, useMemo } from "react";
 import { MdOutlineDesktopMac } from "react-icons/md";
 import type { IconType } from "react-icons";
+import { useTranslation } from "next-i18next";
 import Popover from "@/components/shared/popover";
-import { useTheme } from "next-themes";
-import { themes, icons, Theme, ThemeMode } from "@/theme/index";
+import { useAppTheme } from "@/lib/hooks";
+import { themes, icons, Theme, ThemeMode } from "@/theme";
 
 export default function ThemeDropdown() {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useAppTheme();
+  const { t: th } = useTranslation(["header"]);
   const [openPopover, setOpenPopover] = useState(false);
 
   const ThemeIcon: IconType = useMemo(() => {
-    return icons[(theme || "system") as ThemeMode] || MdOutlineDesktopMac;
+    return icons[theme as ThemeMode] || MdOutlineDesktopMac;
   }, [theme]);
 
   return (
@@ -32,7 +34,7 @@ export default function ThemeDropdown() {
                   }`}
                 >
                   <t.icon className="mr-2" />
-                  <p className="text-sm">{t.name}</p>
+                  <p className="text-sm">{th(`menus.${t.mode}`)}</p>
                 </button>
               );
             })}
