@@ -7,5 +7,13 @@
   "languages": {
     "zh": "Chinese",
     "en": "English"
+  },
+  "sign-in": {
+    "title": "Sign in",
+    "tips": "Only your email and profile picture will be stored.",
+    "sign-in-with-google": "Sign In with Google",
+    "sign-in-with-github": "Sign In with GitHub",
+    "read-and-agree": "I have carefully read and agreed to",
+    "and": "and"
   }
 }

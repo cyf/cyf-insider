@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Session } from "next-auth";
+import { useTranslation } from "next-i18next";
 import useScroll from "@/lib/hooks/use-scroll";
 import { useSignInModal } from "./sign-in-modal";
 import UserDropdown from "./user-dropdown";
@@ -10,6 +11,7 @@ import LngDropdown from "./lng-dropdown";
 import ThemeDropdown from "./theme-dropdown";
 
 export default function NavBar({ session }: { session: Session | null }) {
+  const { t } = useTranslation("header");
   const { SignInModal, setShowSignInModal } = useSignInModal();
   const scrolled = useScroll(50);
 
@@ -44,7 +46,7 @@ export default function NavBar({ session }: { session: Session | null }) {
                 className="rounded-full border border-black bg-black p-1.5 px-4 text-sm text-white transition-all hover:bg-white hover:text-black dark:border-white dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white"
                 onClick={() => setShowSignInModal(true)}
               >
-                Sign In
+                {t("sign-in.title")}
               </button>
             )}
           </div>

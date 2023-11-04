@@ -7,5 +7,13 @@
   "languages": {
     "zh": "中文",
     "en": "英文"
+  },
+  "sign-in": {
+    "title": "登录",
+    "tips": "仅存储您的电子邮件和个人资料图片。",
+    "sign-in-with-google": "使用Google登录",
+    "sign-in-with-github": "使用GitHub登录",
+    "read-and-agree": "我已仔细阅读并同意",
+    "and": "和"
   }
 }

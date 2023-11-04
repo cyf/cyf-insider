@@ -11,6 +11,8 @@ import type { GetStaticProps, InferGetStaticPropsType } from "next";
 
 export default function SignIn() {
   const router = useRouter();
+  const { t: th } = useTranslation("header");
+  const { t: tf } = useTranslation("footer");
   const { callbackUrl } = router.query as { callbackUrl?: string };
   const [checked, setChecked] = useState(false);
   const [showRed, setRed] = useState(false);
@@ -35,10 +37,8 @@ export default function SignIn() {
               height={20}
             />
           </Link>
-          <h3 className="text-xl font-semibold">Sign in to CYF Insider</h3>
-          <p className="text-sm text-gray-500">
-            Only your email and profile picture will be stored.
-          </p>
+          <h3 className="text-xl font-semibold">{th("sign-in.title")}</h3>
+          <p className="text-sm text-gray-500">{th("sign-in.tips")}</p>
         </div>
         <div className="flex flex-col space-y-3 bg-gray-50 px-4 py-8 dark:bg-gray-900 sm:px-16">
           <button
@@ -66,7 +66,7 @@ export default function SignIn() {
             ) : (
               <>
                 <Google className="h-5 w-5" />
-                <p>Sign In with Google</p>
+                <p>{th("sign-in.sign-in-with-google")}</p>
               </>
             )}
           </button>
@@ -95,7 +95,7 @@ export default function SignIn() {
             ) : (
               <>
                 <Github className="h-5 w-5" />
-                <p>Sign In with GitHub</p>
+                <p>{th("sign-in.sign-in-with-github")}</p>
               </>
             )}
           </button>
@@ -112,13 +112,14 @@ export default function SignIn() {
             }`}
           />
           <p className="text-sm text-gray-500">
-            I have carefully read and agreed to{" "}
+            &nbsp;{th("sign-in.read-and-agree")}&nbsp;
             <Link className="text-blue-500" href="/legal/privacy">
-              Privacy Policy
-            </Link>{" "}
-            and{" "}
+              {tf("privacy")}
+            </Link>
+            &nbsp;
+            {th("sign-in.and")}&nbsp;
             <Link className="text-blue-500" href="/legal/terms-of-use">
-              Terms and Conditions
+              {tf("terms-of-use")}
             </Link>
           </p>
         </div>
@@ -131,11 +132,9 @@ export const getStaticProps: GetStaticProps<{}> = async ({
   locale = "en",
 }) => ({
   props: {
-    ...(await serverSideTranslations(
-      locale,
-      ["common", "header", "footer"],
-      null,
-      ["en", "zh"],
-    )),
+    ...(await serverSideTranslations(locale, ["header", "footer"], null, [
+      "en",
+      "zh",
+    ])),
   },
 });

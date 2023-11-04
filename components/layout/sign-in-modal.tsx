@@ -1,6 +1,4 @@
 "use client";
-import Modal from "@/components/shared/modal";
-import { signIn } from "next-auth/react";
 import {
   useState,
   Dispatch,
@@ -8,9 +6,12 @@ import {
   useCallback,
   useMemo,
 } from "react";
-import { LoadingDots, Google, Github } from "@/components/shared/icons";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
+import { signIn } from "next-auth/react";
+import Modal from "@/components/shared/modal";
+import { LoadingDots, Google, Github } from "@/components/shared/icons";
 
 const SignInModal = ({
   showSignInModal,
@@ -19,6 +20,8 @@ const SignInModal = ({
   showSignInModal: boolean;
   setShowSignInModal: Dispatch<SetStateAction<boolean>>;
 }) => {
+  const { t: th } = useTranslation("header");
+  const { t: tf } = useTranslation("footer");
   const [checked, setChecked] = useState(false);
   const [showRed, setRed] = useState(false);
   const [googleClicked, setGoogleClicked] = useState(false);
@@ -43,11 +46,9 @@ const SignInModal = ({
             />
           </a>
           <h3 className="font-display text-2xl font-bold">
-            Sign in to CYF Insider
+            {th("sign-in.title")}
           </h3>
-          <p className="text-sm text-gray-500">
-            Only your email and profile picture will be stored.
-          </p>
+          <p className="text-sm text-gray-500">{th("sign-in.tips")}</p>
         </div>
 
         <div className="flex flex-col space-y-4 bg-gray-50 px-4 py-8 dark:bg-gray-900 md:px-16">
@@ -72,7 +73,7 @@ const SignInModal = ({
             ) : (
               <>
                 <Google className="h-5 w-5" />
-                <p>Sign In with Google</p>
+                <p>{th("sign-in.sign-in-with-google")}</p>
               </>
             )}
           </button>
@@ -97,7 +98,7 @@ const SignInModal = ({
             ) : (
               <>
                 <Github className="h-5 w-5" />
-                <p>Sign In with GitHub</p>
+                <p>{th("sign-in.sign-in-with-github")}</p>
               </>
             )}
           </button>
@@ -114,13 +115,13 @@ const SignInModal = ({
             }`}
           />
           <p className="text-sm text-gray-500">
-            I have carefully read and agreed to{" "}
+            &nbsp;{th("sign-in.read-and-agree")}&nbsp;
             <Link className="text-blue-500" href="/legal/privacy">
-              Privacy Policy
-            </Link>{" "}
-            and{" "}
+              {tf("privacy")}
+            </Link>
+            &nbsp;{th("sign-in.and")}&nbsp;
             <Link className="text-blue-500" href="/legal/terms-of-use">
-              Terms and Conditions
+              {tf("terms-of-use")}
             </Link>
           </p>
         </div>
