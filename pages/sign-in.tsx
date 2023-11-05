@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -11,13 +11,31 @@ import type { GetStaticProps, InferGetStaticPropsType } from "next";
 
 export default function SignIn() {
   const router = useRouter();
-  const { t: th } = useTranslation("header");
+  const { t: th, i18n } = useTranslation("header");
   const { t: tf } = useTranslation("footer");
-  const { callbackUrl } = router.query as { callbackUrl?: string };
+  const { callbackUrl: cb } = router.query as { callbackUrl?: string };
+  console.log("cb", cb);
   const [checked, setChecked] = useState(false);
   const [showRed, setRed] = useState(false);
   const [googleClicked, setGoogleClicked] = useState(false);
   const [githubClicked, setGitHubClicked] = useState(false);
+
+  const callbackUrl = useMemo(() => {
+    console.log("router.query", router);
+    let cbUrl = router.query?.callbackUrl as string | undefined;
+    const lng = i18n?.language;
+    console.log("lng", lng);
+    console.log("callbackUrl", cbUrl);
+    if (cbUrl) {
+      cbUrl = decodeURIComponent(cbUrl);
+      if (lng === "zh" && !cbUrl.includes("/zh")) {
+        cbUrl = cbUrl.replace("/join", "/join/zh");
+      } else if (lng === "en" && cbUrl.includes("/zh")) {
+        cbUrl = cbUrl.replace("/join/zh", "/join");
+      }
+    }
+    return cbUrl;
+  }, [router.query, i18n?.language]);
 
   const onCheckboxChange = (e: any) => {
     e.target.checked && setRed(false);
