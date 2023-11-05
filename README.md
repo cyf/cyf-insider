@@ -57,3 +57,8 @@ pnpm run preview
 # yarn
 yarn preview
 ```
+
+# Known issues
+
+1. [https://github.com/vercel/next.js/issues/54981](https://github.com/vercel/next.js/issues/54981)
+2. [https://github.com/nextauthjs/next-auth/discussions/9055](https://github.com/nextauthjs/next-auth/discussions/9055)
