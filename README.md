@@ -61,4 +61,9 @@ yarn preview
 # Known issues
 
 1. [https://github.com/vercel/next.js/issues/54981](https://github.com/vercel/next.js/issues/54981)
+```
+"next": "13.4.12",
+"eslint-config-next": "13.4.12"
+```
+
 2. [https://github.com/nextauthjs/next-auth/discussions/9055](https://github.com/nextauthjs/next-auth/discussions/9055)
