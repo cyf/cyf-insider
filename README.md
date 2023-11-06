@@ -65,5 +65,5 @@ yarn preview
 "next": "13.4.12",
 "eslint-config-next": "13.4.12"
 ```
-
 2. [https://github.com/nextauthjs/next-auth/discussions/9055](https://github.com/nextauthjs/next-auth/discussions/9055)
+3. [https://github.com/contentlayerdev/contentlayer/issues/415](https://github.com/contentlayerdev/contentlayer/issues/415)
