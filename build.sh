@@ -4,7 +4,7 @@ echo "VERCEL_ENV: $VERCEL_ENV"
 echo "NEXT_PUBLIC_ENV: $NEXT_PUBLIC_ENV"
 echo "VERCEL_GIT_COMMIT_REF: $VERCEL_GIT_COMMIT_REF"
 
-if [[ ("$VERCEL_ENV" == "preview" && "$NEXT_PUBLIC_ENV" == "main") || ("$VERCEL_ENV" == "production" && "$VERCEL_GIT_COMMIT_REF" == "main") ]] ; then
+if [[ ("$VERCEL_ENV" == "preview" && "$NEXT_PUBLIC_ENV" == "i18n") || ("$VERCEL_ENV" == "production" && "$VERCEL_GIT_COMMIT_REF" == "i18n") ]] ; then
   # Proceed with the build
   echo "✅ - Build can proceed"
   exit 1;
