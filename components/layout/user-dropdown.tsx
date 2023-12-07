@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { signOut } from "next-auth/react";
 
@@ -33,7 +32,7 @@ export default function UserDropdown({ session }: { session: Session }) {
             </button>
             <button
               className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100 dark:hover:bg-gray-700"
-              onClick={() => router.push("/user-form-list")}
+              onClick={() => router.push("/form/user")}
             >
               <BiUser className="h-4 w-4" />
               <p className="text-sm">User List</p>
@@ -41,7 +40,7 @@ export default function UserDropdown({ session }: { session: Session }) {
             {email === ADMIN_EMAIL && (
               <button
                 className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100 dark:hover:bg-gray-700"
-                onClick={() => router.push("/admin-form-list")}
+                onClick={() => router.push("/form/admin")}
               >
                 <RiAdminLine className="h-4 w-4" />
                 <p className="text-sm">Admin List</p>

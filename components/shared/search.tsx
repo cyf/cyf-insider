@@ -1,12 +1,14 @@
 "use client";
-
 import { FiSearch } from "react-icons/fi";
-import { usePathname, useRouter } from "next/navigation";
 import { useTransition, useState } from "react";
+import { useLocale } from "next-intl";
 import { useDebounce } from "react-use";
+import { basePath } from "@/constants";
+import { usePathname, useRouter } from "@/navigation";
 
 export default function Search({ disabled }: { disabled?: boolean }) {
   const { replace } = useRouter();
+  const locale = useLocale();
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
   const [val, setVal] = useState("");
@@ -28,7 +30,9 @@ export default function Search({ disabled }: { disabled?: boolean }) {
     }
 
     startTransition(() => {
-      replace(`${pathname}?${params.toString()}`);
+      replace(
+        `${pathname.replace(`${basePath}/${locale}`, "")}?${params.toString()}`,
+      );
     });
   }
 

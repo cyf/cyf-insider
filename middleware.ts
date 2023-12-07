@@ -3,7 +3,7 @@ import { withAuth } from "next-auth/middleware";
 import createIntlMiddleware from "next-intl/middleware";
 import { locales, defaultLocale } from "./navigation";
 
-const protectedPages = ["/form", "/user-form-list", "/admin-form-list"];
+const protectedPages = ["/form", "/form/user", "/form/admin"];
 
 const intlMiddleware = createIntlMiddleware({
   locales,
@@ -21,9 +21,7 @@ const authMiddleware = withAuth(
       authorized({ req, token }) {
         // `/admin-form-list` requires admin role
         if (
-          RegExp("^(/(en|zh))?(/admin-form-list)/?$", "i").test(
-            req.nextUrl.pathname,
-          )
+          RegExp("^(/(en|zh))?(/form/admin)/?$", "i").test(req.nextUrl.pathname)
         ) {
           return token?.userRole === "admin";
         }
