@@ -1,17 +1,24 @@
 "use client";
-
 import Image from "next/image";
-import Link from "next/link";
 import { Session } from "next-auth";
-import { useTranslation } from "next-i18next";
+import { useTranslations, useLocale } from "next-intl";
+import { basePath } from "@/constants";
+import { Link } from "@/navigation";
 import useScroll from "@/lib/hooks/use-scroll";
 import { useSignInModal } from "./sign-in-modal";
-import UserDropdown from "./user-dropdown";
 import LngDropdown from "./lng-dropdown";
+import UserDropdown from "./user-dropdown";
 import ThemeDropdown from "./theme-dropdown";
 
-export default function NavBar({ session }: { session: Session | null }) {
-  const { t } = useTranslation("header");
+export default function NavBar({
+  session,
+  lng,
+}: {
+  session: Session | null;
+  lng: string;
+}) {
+  const t = useTranslations();
+  const locale = useLocale();
   const { SignInModal, setShowSignInModal } = useSignInModal();
   const scrolled = useScroll(50);
 
@@ -26,9 +33,12 @@ export default function NavBar({ session }: { session: Session | null }) {
         } z-30 transition-all`}
       >
         <div className="mx-5 flex h-16 max-w-screen-xl items-center justify-between xl:mx-auto">
-          <Link href="/" className="flex items-center font-display text-2xl">
+          <Link
+            href={`/${locale}`}
+            className="flex items-center font-display text-2xl"
+          >
             <Image
-              src="/join/logo.png"
+              src={`${basePath}/logo.png`}
               alt="Precedent logo"
               width="30"
               height="30"
@@ -46,7 +56,7 @@ export default function NavBar({ session }: { session: Session | null }) {
                 className="rounded-full border border-black bg-black p-1.5 px-4 text-sm text-white transition-all hover:bg-white hover:text-black dark:border-white dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white"
                 onClick={() => setShowSignInModal(true)}
               >
-                {t("sign-in.title")}
+                {t("header.sign-in.title")}
               </button>
             )}
           </div>

@@ -1,16 +1,17 @@
 import Image from "next/image";
-import { useTranslation } from "next-i18next";
+import { useTranslations } from "next-intl";
+import { basePath } from "@/constants";
 import PostDate from "@/components/post/post-date";
 import { Post } from "contentlayer/generated";
 
 export default function PostItem({ post }: { post: Post }) {
-  const { t, i18n } = useTranslation("post");
+  const t = useTranslations();
   return (
     <article className="flex items-center border-b border-gray-200 py-4 dark:border-gray-600">
       <div>
         <header>
           <h2 className="h4 mb-2">
-            <a href={`/join/${post.slug}`} className="hover:underline">
+            <a href={`${basePath}/${post.slug}`} className="hover:underline">
               {post.title}
             </a>
           </h2>
@@ -53,7 +54,7 @@ export default function PostItem({ post }: { post: Post }) {
           </div>
         </footer>
       </div>
-      <a href={`/join/${post.slug}`} className="ml-6 block shrink-0">
+      <a href={`${basePath}/${post.slug}`} className="ml-6 block shrink-0">
         <span className="sr-only">Read more</span>
         <svg
           className="h-4 w-4 fill-current text-blue-600"

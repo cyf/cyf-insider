@@ -1,0 +1,37 @@
+{
+  "title": "CYF内测计划",
+  "introduce": "参与内测计划, 您将获得最新的产品体验.",
+  "tips": "我们保证您的个人信息不会被滥用.",
+  "join-insider": "加入计划",
+  "about": {
+    "title": "关于"
+  },
+  "footer": {
+    "footer": "源码托管在",
+    "privacy": "隐私政策",
+    "terms-of-use": "条款和条件",
+    "copyright": "版权所有."
+  },
+  "form": {},
+  "header": {
+    "menus": {
+      "system": "跟随系统",
+      "dark": "黑暗模式",
+      "light": "白天模式"
+    },
+    "languages": {
+      "zh": "中文",
+      "en": "英文"
+    },
+    "sign-in": {
+      "title": "登录",
+      "tips": "仅存储您的电子邮件和个人资料图片。",
+      "sign-in-with-google": "使用Google登录",
+      "sign-in-with-github": "使用GitHub登录",
+      "read-and-agree": "我已仔细阅读并同意",
+      "and": "和"
+    }
+  },
+  "list": {},
+  "post": {}
+}

@@ -23,6 +23,7 @@
       "@/styles/*": ["styles/*"],
       "@/theme/*": ["theme/*"],
       "@/constants/*": ["constants/*"],
+      "@/messages/*": ["messages/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     },
     "plugins": [

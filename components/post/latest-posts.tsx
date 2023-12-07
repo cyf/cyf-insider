@@ -1,3 +1,4 @@
+import { basePath } from "@/constants";
 import { Post } from "contentlayer/generated";
 
 export default function LatestPosts({ posts }: { posts: Post[] }) {
@@ -25,7 +26,10 @@ export default function LatestPosts({ posts }: { posts: Post[] }) {
             </svg>
             <article>
               <h3 className="mb-1 font-medium">
-                <a href={`/join/${post.slug}`} className="hover:underline">
+                <a
+                  href={`${basePath}/${post.slug}`}
+                  className="hover:underline"
+                >
                   {post.title}
                 </a>
               </h3>

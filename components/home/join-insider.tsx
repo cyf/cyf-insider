@@ -1,10 +1,10 @@
 "use client";
-import Link from "next/link";
+import { Link } from "@/navigation";
 import { RiAddCircleLine } from "react-icons/ri";
-import { useTranslation } from "next-i18next";
+import { useTranslations } from "next-intl";
 
 export function JoinInsider() {
-  const { t, i18n } = useTranslation("common");
+  const t = useTranslations();
 
   return (
     <div
@@ -12,7 +12,7 @@ export function JoinInsider() {
       style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
     >
       <Link
-        href={`${i18n?.language === "zh" ? "/zh" : ""}/form`}
+        href="/form"
         className="flex max-w-fit items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm text-gray-600 shadow-md transition-colors hover:border-gray-800 dark:bg-black dark:text-gray-300"
       >
         <RiAddCircleLine className="h-5 w-5 text-gray-600 dark:text-gray-300" />

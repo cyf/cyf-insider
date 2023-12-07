@@ -1,9 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
-import { useTranslation } from "next-i18next";
+import { useTranslations } from "next-intl";
+import { basePath } from "@/constants";
+import { Link } from "@/navigation";
 
-export default function Footer() {
-  const { t, i18n } = useTranslation("footer");
+export default function Footer(props: { lng: string }) {
+  const t = useTranslations();
   const fullYear = new Date().getFullYear();
   return (
     <footer className="w-full border-gray-200 py-5">
@@ -11,11 +12,11 @@ export default function Footer() {
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <a
-              href="https://www.chenyifaer.com/join/"
+              href={`https://www.chenyifaer.com${basePath}`}
               className="flex items-center"
             >
               <Image
-                src="/join/logo.png"
+                src={`${basePath}/logo.png`}
                 height={50}
                 width={50}
                 className="mr-3 rounded-full"
@@ -56,23 +57,13 @@ export default function Footer() {
               </h2>
               <ul className="font-medium text-gray-600 dark:text-gray-400">
                 <li className="mb-4">
-                  <Link
-                    href={`${
-                      i18n.language === "zh" ? "/zh" : ""
-                    }/legal/privacy`}
-                    className="hover:underline"
-                  >
-                    {t("privacy")}
+                  <Link className="hover:underline" href="/legal/privacy">
+                    {t("footer.privacy")}
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href={`${
-                      i18n.language === "zh" ? "/zh" : ""
-                    }/legal/terms-of-use`}
-                    className="hover:underline"
-                  >
-                    {t("terms-of-use")}
+                  <Link className="hover:underline" href="/legal/terms-of-use">
+                    {t("footer.terms-of-use")}
                   </Link>
                 </li>
               </ul>
@@ -84,12 +75,12 @@ export default function Footer() {
           <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
             © {`2023${fullYear === 2023 ? "" : `-${fullYear}`}`}&nbsp;
             <a
-              href="https://www.chenyifaer.com/join"
+              href={`https://www.chenyifaer.com${basePath}`}
               className="hover:underline"
             >
               CYF Insider
             </a>
-            .&nbsp;{t("copyright")}&nbsp;
+            .&nbsp;{t("footer.copyright")}&nbsp;
             {process.env.VERCEL_GIT_COMMIT_SHA && (
               <a
                 href={`https://github.com/cyf/cyf-insider/commit/${process.env.VERCEL_GIT_COMMIT_SHA}`}

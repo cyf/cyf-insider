@@ -1,13 +1,15 @@
 const { withContentlayer } = require("next-contentlayer");
-const { i18n } = require("./next-i18next.config.js");
+const withNextIntl = require("next-intl/plugin")("./i18n.ts");
+
+const basePath =
+  process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? "/join" : "";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "/join",
+  basePath,
   trailingSlash: true,
   reactStrictMode: true,
   swcMinify: true,
-  i18n,
   images: {
     dangerouslyAllowSVG: true,
     domains: [
@@ -36,7 +38,9 @@ const nextConfig = {
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     VERCEL_GIT_COMMIT_SHA: process.env.VERCEL_GIT_COMMIT_SHA,
     NEXT_PUBLIC_GOOGLE_ID: process.env.NEXT_PUBLIC_GOOGLE_ID,
+    NEXT_PUBLIC_COOKIE_BANNER_ID: process.env.NEXT_PUBLIC_COOKIE_BANNER_ID,
+    NEXT_PUBLIC_VERCEL_ENV: process.env.NEXT_PUBLIC_VERCEL_ENV,
   },
 };
 
-module.exports = withContentlayer(nextConfig);
+module.exports = withContentlayer(withNextIntl(nextConfig));

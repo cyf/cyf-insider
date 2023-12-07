@@ -1,0 +1,37 @@
+{
+  "title": "CYF Insider Program",
+  "introduce": "By participating in the insider program, you will get the latest product experience.",
+  "tips": "We guarantee that your personal information will not be misused.",
+  "join-insider": "Join Insider",
+  "about": {
+    "title": "About"
+  },
+  "footer": {
+    "footer": "Source code hosted on",
+    "privacy": "Privacy Policy",
+    "terms-of-use": "Terms and Conditions",
+    "copyright": "All Rights Reserved."
+  },
+  "form": {},
+  "header": {
+    "menus": {
+      "system": "Auto Mode",
+      "dark": "Dark Mode",
+      "light": "Light Mode"
+    },
+    "languages": {
+      "zh": "Chinese",
+      "en": "English"
+    },
+    "sign-in": {
+      "title": "Sign in",
+      "tips": "Only your email and profile picture will be stored.",
+      "sign-in-with-google": "Sign In with Google",
+      "sign-in-with-github": "Sign In with GitHub",
+      "read-and-agree": "I have carefully read and agreed to",
+      "and": "and"
+    }
+  },
+  "list": {},
+  "post": {}
+}

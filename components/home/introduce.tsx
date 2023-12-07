@@ -1,9 +1,9 @@
 "use client";
 import { RoughNotation } from "react-rough-notation";
-import { useTranslation } from "next-i18next";
+import { useTranslations } from "next-intl";
 
 export default function Introduce() {
-  const { t, i18n } = useTranslation("common");
+  const t = useTranslations();
 
   return (
     <RoughNotation

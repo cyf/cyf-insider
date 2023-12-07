@@ -1,4 +1,3 @@
-import Modal from "@/components/shared/modal";
 import {
   useState,
   Dispatch,
@@ -7,6 +6,8 @@ import {
   useMemo,
 } from "react";
 import Image from "next/image";
+import { basePath } from "@/constants";
+import Modal from "@/components/shared/modal";
 
 const DemoModal = ({
   showDemoModal,
@@ -21,7 +22,7 @@ const DemoModal = ({
         <div className="flex flex-col items-center justify-center space-y-3 bg-white px-4 py-6 pt-8 text-center md:px-16">
           <a href="https://precedent.dev">
             <Image
-              src="/join/logo.png"
+              src={`${basePath}/logo.png`}
               alt="Precedent Logo"
               className="h-10 w-10 rounded-full"
               width={20}

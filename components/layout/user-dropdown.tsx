@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import { signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
+
 import { AiOutlineLogout } from "react-icons/ai";
 import { BiUser } from "react-icons/bi";
 import { RiAdminLine, RiAddCircleLine } from "react-icons/ri";
 import Popover from "@/components/shared/popover";
 import Image from "next/image";
 import { Session } from "next-auth";
+import { useRouter } from "@/navigation";
 import { ADMIN_EMAIL } from "@/lib/constants";
 
 export default function UserDropdown({ session }: { session: Session }) {

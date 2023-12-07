@@ -1,7 +1,8 @@
+import { getServerSession } from "next-auth";
 import Navbar from "./navbar";
-import { useSession } from "next-auth/react";
+import auth from "@/auth";
 
-export default function Nav() {
-  const { data: session } = useSession();
-  return <Navbar session={session} />;
+export default async function Nav(props: { lng: string }) {
+  const session = await getServerSession(auth);
+  return <Navbar session={session} lng={props.lng} />;
 }

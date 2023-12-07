@@ -1,31 +1,26 @@
 "use client";
-import {
-  useState,
-  Dispatch,
-  SetStateAction,
-  useCallback,
-  useMemo,
-} from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 import { signIn } from "next-auth/react";
-import { basePath } from "@/constants";
+import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
-import Modal from "@/components/shared/modal";
-import { LoadingDots, Google, Github } from "@/components/shared/icons";
+import { basePath } from "@/constants";
+import { Github, Google, LoadingDots } from "@/components/shared/icons";
 
-const SignInModal = ({
-  showSignInModal,
-  setShowSignInModal,
-}: {
-  showSignInModal: boolean;
-  setShowSignInModal: Dispatch<SetStateAction<boolean>>;
-}) => {
+export default function SignIn() {
+  // const { query } = useRouter();
   const t = useTranslations();
+  // const locale = useLocale();
+  // const pathname = usePathname();
+  // const { callbackUrl: cb } = query as { callbackUrl?: string };
   const [checked, setChecked] = useState(false);
   const [showRed, setRed] = useState(false);
   const [googleClicked, setGoogleClicked] = useState(false);
   const [githubClicked, setGitHubClicked] = useState(false);
+
+  // const callbackUrl = useMemo(() => {
+  //   return pathname.startsWith(`${basePath}/${locale}/`) ? pathname : `${basePath}/${locale}${pathname}`;
+  // }, [basePath, locale, pathname])
 
   const onCheckboxChange = (e: any) => {
     e.target.checked && setRed(false);
@@ -33,25 +28,22 @@ const SignInModal = ({
   };
 
   return (
-    <Modal showModal={showSignInModal} setShowModal={setShowSignInModal}>
-      <div className="w-full overflow-hidden shadow-xl md:max-w-md md:rounded-2xl md:border md:border-gray-200 dark:md:border-gray-700">
-        <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center dark:border-gray-700 dark:bg-gray-900 md:px-16">
-          <a href={`https://www.chenyifaer.com${basePath}`}>
+    <div className="flex w-screen justify-center">
+      <div className="z-10 h-fit w-full max-w-md overflow-hidden border border-gray-100 dark:border-gray-900 sm:rounded-2xl sm:shadow-xl">
+        <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center dark:border-gray-700 dark:bg-gray-900 sm:px-16">
+          <Link href="/">
             <Image
               src={`${basePath}/logo.png`}
-              alt="Logo"
+              alt="CYF Insider logo"
               className="h-10 w-10 rounded-full"
               width={20}
               height={20}
             />
-          </a>
-          <h3 className="font-display text-2xl font-bold">
-            {t("header.sign-in.title")}
-          </h3>
+          </Link>
+          <h3 className="text-xl font-semibold">{t("header.sign-in.title")}</h3>
           <p className="text-sm text-gray-500">{t("header.sign-in.tips")}</p>
         </div>
-
-        <div className="flex flex-col space-y-4 bg-gray-50 px-4 py-8 dark:bg-gray-900 md:px-16">
+        <div className="flex flex-col space-y-3 bg-gray-50 px-4 py-8 dark:bg-gray-900 sm:px-16">
           <button
             disabled={googleClicked}
             className={`${
@@ -65,7 +57,9 @@ const SignInModal = ({
                 return;
               }
               setGoogleClicked(true);
-              signIn("google");
+              signIn("google").finally(() => {
+                setGoogleClicked(false);
+              });
             }}
           >
             {googleClicked ? (
@@ -90,7 +84,9 @@ const SignInModal = ({
                 return;
               }
               setGitHubClicked(true);
-              signIn("github");
+              signIn("github").finally(() => {
+                setGitHubClicked(false);
+              });
             }}
           >
             {githubClicked ? (
@@ -119,31 +115,14 @@ const SignInModal = ({
             <Link className="text-blue-500" href="/legal/privacy">
               {t("footer.privacy")}
             </Link>
-            &nbsp;{t("header.sign-in.and")}&nbsp;
+            &nbsp;
+            {t("header.sign-in.and")}&nbsp;
             <Link className="text-blue-500" href="/legal/terms-of-use">
               {t("footer.terms-of-use")}
             </Link>
           </p>
         </div>
       </div>
-    </Modal>
-  );
-};
-
-export function useSignInModal() {
-  const [showSignInModal, setShowSignInModal] = useState(false);
-
-  const SignInModalCallback = useCallback(() => {
-    return (
-      <SignInModal
-        showSignInModal={showSignInModal}
-        setShowSignInModal={setShowSignInModal}
-      />
-    );
-  }, [showSignInModal, setShowSignInModal]);
-
-  return useMemo(
-    () => ({ setShowSignInModal, SignInModal: SignInModalCallback }),
-    [setShowSignInModal, SignInModalCallback],
+    </div>
   );
 }

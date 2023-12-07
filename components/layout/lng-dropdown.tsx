@@ -1,38 +1,37 @@
 import { useState } from "react";
-import { useRouter } from "next/router";
-import { useTranslation } from "next-i18next";
+import { useTranslations, useLocale } from "next-intl";
 import { RiTranslate } from "react-icons/ri";
 import Popover from "@/components/shared/popover";
-import { i18n as i18nSettings } from "@/next-i18next.config";
+import { locales, Link, usePathname } from "@/navigation";
+import { basePath } from "@/constants";
 
 export default function LngDropdown() {
-  const router = useRouter();
-  const { t, i18n } = useTranslation(["header"]);
+  const pathname = usePathname();
+  const t = useTranslations();
+  const currentLocale = useLocale();
   const [openPopover, setOpenPopover] = useState(false);
-
-  const onToggleLanguageClick = (locale: string) => {
-    const { pathname, asPath, query } = router;
-    router.push({ pathname, query }, asPath, { locale });
-  };
 
   return (
     <div className="relative mr-2 inline-block text-left">
       <Popover
         content={
           <div className="w-full rounded-md bg-white p-2 dark:bg-black sm:w-56">
-            {i18nSettings.locales.map((locale) => {
+            {locales.map((locale) => {
               return (
-                <button
+                <Link
                   key={locale}
-                  onClick={() => onToggleLanguageClick(locale)}
+                  href={pathname
+                    .replace(basePath, "")
+                    .replace(`/${currentLocale}`, "")}
+                  locale={locale}
                   className={`relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 ${
-                    locale === i18n.language
+                    locale === currentLocale
                       ? "cursor-not-allowed bg-gray-100 dark:bg-gray-700"
                       : ""
                   }`}
                 >
-                  <p className="text-sm">{t(`languages.${locale}`)}</p>
-                </button>
+                  <p className="text-sm">{t(`header.languages.${locale}`)}</p>
+                </Link>
               );
             })}
           </div>
