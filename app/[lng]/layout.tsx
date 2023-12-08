@@ -12,7 +12,6 @@ import GoogleAnalytics from "@/components/shared/google-analytics";
 import CookieBanner from "@/components/shared/cookie-banner";
 import ScrollToTop from "@/components/layout/scroll-to-top";
 import Particles from "@/components/layout/particles";
-import { locales } from "@/navigation";
 import { basePath } from "@/constants";
 import { Providers } from "./providers";
 import { sfPro, inter } from "./fonts";
