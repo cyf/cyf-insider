@@ -20,7 +20,7 @@ export default function SignIn({ session }: { session: Session | null }) {
   const [githubClicked, setGitHubClicked] = useState(false);
 
   if (session?.user) {
-    redirect(`${basePath}/${locale}/form`);
+    redirect("/form");
   }
 
   const onCheckboxChange = (e: any) => {
