@@ -9,8 +9,8 @@ export default function Form() {
 
   return (
     <div className="flex h-screen w-screen justify-center">
-      <div className="z-10 mt-[calc(30vh)] h-fit w-full max-w-md overflow-hidden border border-gray-100 dark:border-gray-700 sm:rounded-2xl sm:shadow-xl">
-        <div className="flex flex-col space-y-3 bg-gray-50 px-4 py-8 dark:bg-gray-700 sm:px-16">
+      <div className="z-10 mt-[calc(30vh)] h-fit w-full max-w-md overflow-hidden border border-gray-100 sm:rounded-2xl sm:shadow-xl dark:border-gray-700">
+        <div className="flex flex-col space-y-3 bg-gray-50 px-4 py-8 sm:px-16 dark:bg-gray-700">
           <form
             onSubmit={async (e) => {
               e.preventDefault();
@@ -25,7 +25,7 @@ export default function Form() {
               <select
                 id="game"
                 name="game"
-                placeholder="please select your game"
+                // placeholder="please select your game"
                 required
                 value="fafa-runner"
                 onChange={(e) => {}}
