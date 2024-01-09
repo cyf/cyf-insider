@@ -24,7 +24,7 @@
     "@tremor/react": "^3.12.2",
     "classnames": "^2.5.1",
     "contentlayer": "^0.3.4",
-    "date-fns": "^3.1.0",
+    "date-fns": "^3.2.0",
     "focus-trap-react": "^10.2.3",
     "framer-motion": "^10.17.9",
     "ms": "^2.1.3",
