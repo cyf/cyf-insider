@@ -13,7 +13,7 @@
     "format": "prettier --write \"**/*.{css,js,json,jsx,ts,tsx}\"",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "author": "kjxbyz <kjxbyz@163.com>",
   "dependencies": {
