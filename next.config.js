@@ -8,14 +8,13 @@ const nextConfig = {
   swcMinify: true,
   images: {
     dangerouslyAllowSVG: true,
-    domains: [
-      "lh3.googleusercontent.com",
-      "avatars.githubusercontent.com",
-      "www.chenyifaer.com",
-      "chenyifaer.com",
-      "visitor-badge.laobi.icu",
-      "vercel.com",
-      "www.kjxbyz.com",
+    remotePatterns: [
+      { hostname: "lh3.googleusercontent.com" },
+      { hostname: "avatars.githubusercontent.com" },
+      { hostname: "www.chenyifaer.com" },
+      { hostname: "chenyifaer.com" },
+      { hostname: "visitor-badge.laobi.icu" },
+      { hostname: "www.kjxbyz.com" },
     ],
   },
   experimental: {
