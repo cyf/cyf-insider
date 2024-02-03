@@ -1,4 +1,5 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
+import type { Adapter } from "next-auth/adapters";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
@@ -6,7 +7,8 @@ import prisma from "@/lib/prisma";
 import { ADMIN_EMAIL } from "@/lib/constants";
 
 const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
+  // TODO: FIX ME https://github.com/nextauthjs/next-auth/issues/9493
+  adapter: PrismaAdapter(prisma) as Adapter,
   session: {
     strategy: "jwt",
     maxAge: 60 * 60 * 24 * 14,
