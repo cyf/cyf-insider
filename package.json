@@ -21,7 +21,7 @@
     "@prisma/client": "^5.9.1",
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-tooltip": "^1.0.7",
-    "@tremor/react": "^3.13.4",
+    "@tremor/react": "^3.14.0",
     "classnames": "^2.5.1",
     "contentlayer": "^0.3.4",
     "date-fns": "^3.3.1",
