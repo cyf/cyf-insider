@@ -1,7 +1,5 @@
 # CYF Insider
 
-[![CodeFactor](https://www.codefactor.io/repository/github/cyf/cyf-insider/badge)](https://www.codefactor.io/repository/github/cyf/cyf-insider)
-
 ## Setup
 
 Make sure to install the dependencies:
